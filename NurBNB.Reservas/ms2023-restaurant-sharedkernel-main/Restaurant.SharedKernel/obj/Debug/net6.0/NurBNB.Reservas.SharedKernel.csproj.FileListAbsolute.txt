@@ -1,0 +1,24 @@
+C:\Diplomado\Ejemplo de Clase\ms2023-restaurant-sharedkernel-main\ms2023-restaurant-sharedkernel-main\Restaurant.SharedKernel\bin\Debug\net6.0\NurBNB.Reservas.SharedKernel.deps.json
+C:\Diplomado\Ejemplo de Clase\ms2023-restaurant-sharedkernel-main\ms2023-restaurant-sharedkernel-main\Restaurant.SharedKernel\bin\Debug\net6.0\NurBNB.Reservas.SharedKernel.dll
+C:\Diplomado\Ejemplo de Clase\ms2023-restaurant-sharedkernel-main\ms2023-restaurant-sharedkernel-main\Restaurant.SharedKernel\bin\Debug\net6.0\NurBNB.Reservas.SharedKernel.pdb
+C:\Diplomado\Ejemplo de Clase\ms2023-restaurant-sharedkernel-main\ms2023-restaurant-sharedkernel-main\Restaurant.SharedKernel\obj\Debug\net6.0\NurBNB.Reservas.SharedKernel.csproj.AssemblyReference.cache
+C:\Diplomado\Ejemplo de Clase\ms2023-restaurant-sharedkernel-main\ms2023-restaurant-sharedkernel-main\Restaurant.SharedKernel\obj\Debug\net6.0\NurBNB.Reservas.SharedKernel.GeneratedMSBuildEditorConfig.editorconfig
+C:\Diplomado\Ejemplo de Clase\ms2023-restaurant-sharedkernel-main\ms2023-restaurant-sharedkernel-main\Restaurant.SharedKernel\obj\Debug\net6.0\NurBNB.Reservas.SharedKernel.AssemblyInfoInputs.cache
+C:\Diplomado\Ejemplo de Clase\ms2023-restaurant-sharedkernel-main\ms2023-restaurant-sharedkernel-main\Restaurant.SharedKernel\obj\Debug\net6.0\NurBNB.Reservas.SharedKernel.AssemblyInfo.cs
+C:\Diplomado\Ejemplo de Clase\ms2023-restaurant-sharedkernel-main\ms2023-restaurant-sharedkernel-main\Restaurant.SharedKernel\obj\Debug\net6.0\NurBNB.Reservas.SharedKernel.csproj.CoreCompileInputs.cache
+C:\Diplomado\Ejemplo de Clase\ms2023-restaurant-sharedkernel-main\ms2023-restaurant-sharedkernel-main\Restaurant.SharedKernel\obj\Debug\net6.0\NurBNB.Reservas.SharedKernel.dll
+C:\Diplomado\Ejemplo de Clase\ms2023-restaurant-sharedkernel-main\ms2023-restaurant-sharedkernel-main\Restaurant.SharedKernel\obj\Debug\net6.0\refint\NurBNB.Reservas.SharedKernel.dll
+C:\Diplomado\Ejemplo de Clase\ms2023-restaurant-sharedkernel-main\ms2023-restaurant-sharedkernel-main\Restaurant.SharedKernel\obj\Debug\net6.0\NurBNB.Reservas.SharedKernel.pdb
+C:\Diplomado\Ejemplo de Clase\ms2023-restaurant-sharedkernel-main\ms2023-restaurant-sharedkernel-main\Restaurant.SharedKernel\obj\Debug\net6.0\ref\NurBNB.Reservas.SharedKernel.dll
+C:\Diplomado\Actividad4\NurBNB_Reservas\NurBNB.Reservas\ms2023-restaurant-sharedkernel-main\Restaurant.SharedKernel\bin\Debug\net6.0\NurBNB.Reservas.SharedKernel.deps.json
+C:\Diplomado\Actividad4\NurBNB_Reservas\NurBNB.Reservas\ms2023-restaurant-sharedkernel-main\Restaurant.SharedKernel\bin\Debug\net6.0\NurBNB.Reservas.SharedKernel.dll
+C:\Diplomado\Actividad4\NurBNB_Reservas\NurBNB.Reservas\ms2023-restaurant-sharedkernel-main\Restaurant.SharedKernel\bin\Debug\net6.0\NurBNB.Reservas.SharedKernel.pdb
+C:\Diplomado\Actividad4\NurBNB_Reservas\NurBNB.Reservas\ms2023-restaurant-sharedkernel-main\Restaurant.SharedKernel\obj\Debug\net6.0\NurBNB.Reservas.SharedKernel.csproj.AssemblyReference.cache
+C:\Diplomado\Actividad4\NurBNB_Reservas\NurBNB.Reservas\ms2023-restaurant-sharedkernel-main\Restaurant.SharedKernel\obj\Debug\net6.0\NurBNB.Reservas.SharedKernel.GeneratedMSBuildEditorConfig.editorconfig
+C:\Diplomado\Actividad4\NurBNB_Reservas\NurBNB.Reservas\ms2023-restaurant-sharedkernel-main\Restaurant.SharedKernel\obj\Debug\net6.0\NurBNB.Reservas.SharedKernel.AssemblyInfoInputs.cache
+C:\Diplomado\Actividad4\NurBNB_Reservas\NurBNB.Reservas\ms2023-restaurant-sharedkernel-main\Restaurant.SharedKernel\obj\Debug\net6.0\NurBNB.Reservas.SharedKernel.AssemblyInfo.cs
+C:\Diplomado\Actividad4\NurBNB_Reservas\NurBNB.Reservas\ms2023-restaurant-sharedkernel-main\Restaurant.SharedKernel\obj\Debug\net6.0\NurBNB.Reservas.SharedKernel.csproj.CoreCompileInputs.cache
+C:\Diplomado\Actividad4\NurBNB_Reservas\NurBNB.Reservas\ms2023-restaurant-sharedkernel-main\Restaurant.SharedKernel\obj\Debug\net6.0\NurBNB.Reservas.SharedKernel.dll
+C:\Diplomado\Actividad4\NurBNB_Reservas\NurBNB.Reservas\ms2023-restaurant-sharedkernel-main\Restaurant.SharedKernel\obj\Debug\net6.0\refint\NurBNB.Reservas.SharedKernel.dll
+C:\Diplomado\Actividad4\NurBNB_Reservas\NurBNB.Reservas\ms2023-restaurant-sharedkernel-main\Restaurant.SharedKernel\obj\Debug\net6.0\NurBNB.Reservas.SharedKernel.pdb
+C:\Diplomado\Actividad4\NurBNB_Reservas\NurBNB.Reservas\ms2023-restaurant-sharedkernel-main\Restaurant.SharedKernel\obj\Debug\net6.0\ref\NurBNB.Reservas.SharedKernel.dll
