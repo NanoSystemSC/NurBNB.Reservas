@@ -7,6 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Model\Reservas\Reserva.cs" />
+    <Compile Remove="ValueObjects\PrecioValue.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="MediatR" Version="12.1.1" />
   </ItemGroup>
 

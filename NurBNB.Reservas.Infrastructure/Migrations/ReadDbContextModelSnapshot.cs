@@ -27,7 +27,7 @@ namespace NurBNB.Reservas.Infrastructure.Migrations
                     b.Property<string>("Apellidos")
                         .IsRequired()
                         .HasMaxLength(100)
-                        .HasColumnType("TEXT")
+                        .HasColumnType("TEXT") 
                         .HasColumnName("apellidos");
 
                     b.Property<string>("Calle")

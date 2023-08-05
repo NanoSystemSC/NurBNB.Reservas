@@ -17,6 +17,7 @@ namespace NurBNB.Reservas.Application
             services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
 
             services.AddSingleton<IHuespedFactory, HuespedFactory>();
+            services.AddSingleton<IPropiedadFactory, PropiedadFactory>();
 
             return services;
         }

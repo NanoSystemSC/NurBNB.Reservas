@@ -26,7 +26,7 @@ namespace NurBNB.Reservas.Infrastructure.Migrations
                     pais = table.Column<string>(type: "TEXT", maxLength: 50, nullable: false),
                     codigo_postal = table.Column<string>(type: "TEXT", maxLength: 10, nullable: false)
                 },
-                constraints: table =>
+                constraints: table => 
                 {
                     table.PrimaryKey("PK_huesped", x => x.huespedID);
                 });

@@ -41,6 +41,7 @@ namespace NurBNB.Reservas.Infrastructure
 
             services.AddScoped<IUnitOfWork, UnitofWork>();
             services.AddScoped<IHuespedRepository, HuespedRepository>();
+            services.AddScoped<IPropiedadRepository, PropiedadRepository>();
             //services.AddScoped<ITransaccionRepository, TransaccionRepository>();
 
             using var scope = services.BuildServiceProvider().CreateScope();
