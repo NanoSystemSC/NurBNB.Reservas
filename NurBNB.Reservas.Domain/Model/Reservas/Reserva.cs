@@ -16,18 +16,18 @@ namespace NurBNB.Reservas.Domain.Model.Reservas
         public DateTime Fecha_Checkin { get; set; }
         public DateTime Fecha_Checkout { get; set; }
         public DateTime Fecha_Registro { get; set; }
-        public Estado estados { get; set; }
+        public Estado Estados { get; set; }
 
-        internal Reserva(Guid id_Reserva, string id_Huesped, int iD_Propiedad, DateTime fecha_Checkin, DateTime fecha_Checkout, DateTime fecha_Registro, Estado estados)
+        internal Reserva(Guid id_Huesped, Guid id_Propiedad, DateTime fecha_Checkin, DateTime fecha_Checkout, DateTime fecha_Registro, Estado estados)
         {
             //Id_Reserva = id_Reserva;
             Id = Guid.NewGuid();
             Id_Huesped = id_Huesped;
-            ID_Propiedad = iD_Propiedad;
+            ID_Propiedad = id_Propiedad;
             Fecha_Checkin = fecha_Checkin;
             Fecha_Checkout = fecha_Checkout;
             Fecha_Registro = fecha_Registro;
-            this.estados = estados;
+            Estados = estados;
         }   
 
         private Reserva() { }
