@@ -18,6 +18,7 @@ namespace NurBNB.Reservas.Application
 
             services.AddSingleton<IHuespedFactory, HuespedFactory>();
             services.AddSingleton<IPropiedadFactory, PropiedadFactory>();
+            services.AddSingleton<IReservaFactory, ReservaFactory>();
 
             return services;
         }

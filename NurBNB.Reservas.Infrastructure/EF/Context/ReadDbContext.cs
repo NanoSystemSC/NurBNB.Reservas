@@ -17,6 +17,8 @@ namespace NurBNB.Reservas.Infrastructure.EF.Context
 
         public virtual DbSet<PropiedadReadModel> Propiedad { get; set; }
 
+        public virtual DbSet<ReservaReadModel> Reserva { get; set; }
+
 
         public ReadDbContext(DbContextOptions<ReadDbContext> options) : base(options)
         {

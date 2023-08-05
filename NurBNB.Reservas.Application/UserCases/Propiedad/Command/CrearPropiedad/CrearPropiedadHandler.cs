@@ -25,7 +25,7 @@ namespace NurBNB.Reservas.Application.UserCases.Propiedad.Command.CrearPropiedad
 
         public async Task<Guid> Handle(CrearPropiedadCommand request, CancellationToken cancellationToken)
         {
-            var propiedadCreada = _propiedadFactory.Create(request.ID_Propietario, request.Titulo, request.Precio,
+            var propiedadCreada = _propiedadFactory.Create(request.Propietario_ID, request.Titulo, request.Precio,
                  request.Detalle, request.ubicacion);
 
             await _propiedadRepository.CreateAsync(propiedadCreada);

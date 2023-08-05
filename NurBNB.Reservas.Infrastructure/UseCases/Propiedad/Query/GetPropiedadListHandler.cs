@@ -35,8 +35,8 @@ namespace NurBNB.Reservas.Infrastructure.UseCases.Propiedad.Query
             return await query.Select(propiedad =>
                 new PropiedadDto
                 {
-                    PropiedadID = propiedad.Id,
-                    ID_Propietario = propiedad.ID_Propietario,
+                    ID_Propiedad = propiedad.Id,
+                    Propietario_ID = propiedad.Propietario_ID,
                     Titulo = propiedad.Titulo,
                     Detalle = propiedad.Detalle,
                     Precio = propiedad.Precio,

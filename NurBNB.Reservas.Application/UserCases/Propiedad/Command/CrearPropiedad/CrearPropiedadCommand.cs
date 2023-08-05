@@ -10,7 +10,7 @@ namespace NurBNB.Reservas.Application.UserCases.Propiedad.Command.CrearPropiedad
 {
     public class CrearPropiedadCommand : IRequest<Guid>
     {
-        public string ID_Propietario { get;  set; }
+        public string Propietario_ID { get;  set; }
         public string Titulo { get;  set; }
         public decimal Precio { get;  set; }
         public string Detalle { get;  set; }

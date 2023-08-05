@@ -8,7 +8,7 @@ using NurBNB.Reservas.SharedKernel.Core;
 
 namespace NurBNB.Reservas.Domain.Model.Reservas
 {
-    public class Reserva : Entity
+    public class Reserva : AggregateRoot
     {
         //public Guid ReservaID { get; private set; }
         public Guid HuespedID { get; private set; }
@@ -16,9 +16,10 @@ namespace NurBNB.Reservas.Domain.Model.Reservas
         public DateTime FechaCheckIn { get; private set; }
         public DateTime FechaCheckOut { get; private set; }
         public DateTime FechaRegistro { get; private set; }
+        public string Motivo { get; private set; }
         public TipoEstadoReserva Estado { get; private set; }
 
-        public Reserva(Guid huespedID, Guid propiedadID, DateTime fechaCheckIn, DateTime fechaCheckOut)
+        public Reserva(Guid huespedID, Guid propiedadID, DateTime fechaCheckIn, DateTime fechaCheckOut, string motivo)
         {
             Id = Guid.NewGuid();
             HuespedID = huespedID;
@@ -27,8 +28,11 @@ namespace NurBNB.Reservas.Domain.Model.Reservas
             FechaCheckOut = fechaCheckOut;
             FechaRegistro = DateTime.Now;
             Estado = TipoEstadoReserva.Solicitado;
+            Motivo = motivo;
         }
 
         private Reserva() { }
+
+        
     }
 }

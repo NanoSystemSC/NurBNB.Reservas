@@ -15,7 +15,8 @@ namespace NurBNB.Reservas.Infrastructure.EF.Context
     {
         public virtual DbSet<Huesped> Huesped { set; get; }
         public virtual DbSet<Propiedad> Propiedad { set; get; }
-        //public virtual DbSet<Transaccion> Transaccion { set; get; }
+
+        public virtual DbSet<Reserva> Reserva { set; get; }
 
         public WriteDbContext(DbContextOptions<WriteDbContext> options) : base(options)
         {
@@ -30,6 +31,9 @@ namespace NurBNB.Reservas.Infrastructure.EF.Context
 
             var propiedadConfig = new PropiedadConfig();
             modelBuilder.ApplyConfiguration(propiedadConfig);
+
+            var reservaConfig = new ReservaConfig();
+            modelBuilder.ApplyConfiguration(reservaConfig);
 
             //var transaccionConfig = new TransaccionConfig();
             //modelBuilder.ApplyConfiguration<Transaccion>(transaccionConfig);

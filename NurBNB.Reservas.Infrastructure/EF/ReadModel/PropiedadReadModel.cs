@@ -12,12 +12,12 @@ namespace NurBNB.Reservas.Infrastructure.EF.ReadModel
     internal class PropiedadReadModel
     {
         [Key]
-        [Column("propiedadID")]
+        [Column("ID_Propiedad")]
         public Guid Id { get; set; }
 
-        [Column("ID_Propietario")]
+        [Column("Propietario_ID")]
         [Required] 
-        public string ID_Propietario { get; set; }
+        public string Propietario_ID { get; set; }
 
         [Column("titulo")]
         [StringLength(100)]

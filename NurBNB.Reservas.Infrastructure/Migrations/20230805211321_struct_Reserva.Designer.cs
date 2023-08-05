@@ -11,8 +11,8 @@ using NurBNB.Reservas.Infrastructure.EF.Context;
 namespace NurBNB.Reservas.Infrastructure.Migrations
 {
     [DbContext(typeof(ReadDbContext))]
-    [Migration("20230805181419_struct_PropiedadEstado")]
-    partial class struct_PropiedadEstado
+    [Migration("20230805211321_struct_Reserva")]
+    partial class struct_Reserva
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -91,7 +91,7 @@ namespace NurBNB.Reservas.Infrastructure.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT")
-                        .HasColumnName("propiedadID");
+                        .HasColumnName("ID_Propiedad");
 
                     b.Property<string>("Detalle")
                         .IsRequired()
@@ -104,14 +104,14 @@ namespace NurBNB.Reservas.Infrastructure.Migrations
                         .HasColumnType("TEXT")
                         .HasColumnName("estado");
 
-                    b.Property<string>("ID_Propietario")
-                        .IsRequired()
-                        .HasColumnType("TEXT")
-                        .HasColumnName("ID_Propietario");
-
                     b.Property<decimal>("Precio")
                         .HasColumnType("decimal(18,2)")
                         .HasColumnName("precio");
+
+                    b.Property<string>("Propietario_ID")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("Propietario_ID");
 
                     b.Property<string>("Titulo")
                         .IsRequired()
@@ -128,6 +128,50 @@ namespace NurBNB.Reservas.Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("propiedad");
+                });
+
+            modelBuilder.Entity("NurBNB.Reservas.Infrastructure.EF.ReadModel.ReservaReadModel", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("ID_Reserva");
+
+                    b.Property<string>("Estado")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("TEXT")
+                        .HasColumnName("Estado");
+
+                    b.Property<DateTime>("FechaCheckIn")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("FechaCheckin");
+
+                    b.Property<DateTime>("FechaCheckOut")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("FechaCheckOut");
+
+                    b.Property<DateTime>("FechaRegistro")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("FechaRegistro");
+
+                    b.Property<Guid>("HuespedID")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("Huesped_ID");
+
+                    b.Property<string>("Motivo")
+                        .IsRequired()
+                        .HasMaxLength(150)
+                        .HasColumnType("TEXT")
+                        .HasColumnName("Motivo");
+
+                    b.Property<Guid>("PropiedadID")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("Propiedad_ID");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Reserva");
                 });
 #pragma warning restore 612, 618
         }

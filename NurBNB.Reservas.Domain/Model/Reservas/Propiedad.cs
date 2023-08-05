@@ -11,27 +11,32 @@ namespace NurBNB.Reservas.Domain.Model.Reservas
 {
     public class Propiedad: AggregateRoot
     {
-        //public Guid ID_Propietario { get; private set; }
-        public string ID_Propietario { get; private set; }
+        public string Propietario_ID { get; private set; }
         public string Titulo { get; private set; }
         public PrecioValue Precio { get; private set; }
-        //public decimal Precio { get; private set; }
         public string Detalle { get; private set; }
         public string ubicacion { get; private set; }
 
         public TipoEstadoReserva Estado { get; private set; }
-       
-        public Propiedad(string iD_Propietario, string titulo, decimal precio, string detalle, string ubicacion)
+
+        //private readonly ICollection<Reserva> _reserva;
+
+        //public IEnumerable<Reserva> Reserva => _reserva;
+
+        public Propiedad(string propietario_ID, string titulo, decimal precio, string detalle, string ubicacion)
         {
             Id = Guid.NewGuid();
-            ID_Propietario = iD_Propietario;
+            Propietario_ID = propietario_ID;
             Titulo = titulo;
             Precio = precio;
             Detalle = detalle;
             this.ubicacion = ubicacion;
             Estado = TipoEstadoReserva.Disponible;
+            //_reserva = new List<Reserva>();
         }
 
         private Propiedad() { }
+
+        
     }
 }

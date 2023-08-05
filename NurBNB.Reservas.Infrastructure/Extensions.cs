@@ -42,7 +42,7 @@ namespace NurBNB.Reservas.Infrastructure
             services.AddScoped<IUnitOfWork, UnitofWork>();
             services.AddScoped<IHuespedRepository, HuespedRepository>();
             services.AddScoped<IPropiedadRepository, PropiedadRepository>();
-            //services.AddScoped<ITransaccionRepository, TransaccionRepository>();
+            services.AddScoped<IReservaRepository, ReservaRepository>();
 
             using var scope = services.BuildServiceProvider().CreateScope();
             if (!isDevelopment)

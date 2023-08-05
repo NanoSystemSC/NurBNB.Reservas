@@ -10,8 +10,8 @@ namespace NurBNB.Reservas.Application.Dto.Propiedad
     public class PropiedadDto
     {
 
-        public Guid PropiedadID { get; set; }
-        public string ID_Propietario { get;  set; }
+        public Guid ID_Propiedad { get; set; }
+        public string Propietario_ID { get;  set; }
         
         public string Titulo { get;  set; }
         public decimal Precio { get;  set; }       

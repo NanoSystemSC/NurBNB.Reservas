@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NurBNB.Reservas.Infrastructure.EF.Context;
 
@@ -10,9 +11,11 @@ using NurBNB.Reservas.Infrastructure.EF.Context;
 namespace NurBNB.Reservas.Infrastructure.Migrations
 {
     [DbContext(typeof(ReadDbContext))]
-    partial class ReadDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230805194354_struct_PropiedadEstado")]
+    partial class struct_PropiedadEstado
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.9");
@@ -125,50 +128,6 @@ namespace NurBNB.Reservas.Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("propiedad");
-                });
-
-            modelBuilder.Entity("NurBNB.Reservas.Infrastructure.EF.ReadModel.ReservaReadModel", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT")
-                        .HasColumnName("ID_Reserva");
-
-                    b.Property<string>("Estado")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("TEXT")
-                        .HasColumnName("Estado");
-
-                    b.Property<DateTime>("FechaCheckIn")
-                        .HasColumnType("TEXT")
-                        .HasColumnName("FechaCheckin");
-
-                    b.Property<DateTime>("FechaCheckOut")
-                        .HasColumnType("TEXT")
-                        .HasColumnName("FechaCheckOut");
-
-                    b.Property<DateTime>("FechaRegistro")
-                        .HasColumnType("TEXT")
-                        .HasColumnName("FechaRegistro");
-
-                    b.Property<Guid>("HuespedID")
-                        .HasColumnType("TEXT")
-                        .HasColumnName("Huesped_ID");
-
-                    b.Property<string>("Motivo")
-                        .IsRequired()
-                        .HasMaxLength(150)
-                        .HasColumnType("TEXT")
-                        .HasColumnName("Motivo");
-
-                    b.Property<Guid>("PropiedadID")
-                        .HasColumnType("TEXT")
-                        .HasColumnName("Propiedad_ID");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Reserva");
                 });
 #pragma warning restore 612, 618
         }

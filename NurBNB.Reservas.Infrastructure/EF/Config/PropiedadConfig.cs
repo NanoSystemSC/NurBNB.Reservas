@@ -22,10 +22,10 @@ namespace NurBNB.Reservas.Infrastructure.EF.Config
 
 
             builder.Property(x => x.Id)
-                .HasColumnName("propiedadID");
+                .HasColumnName("ID_Propiedad");
 
-            builder.Property(x => x.ID_Propietario)
-                .HasColumnName("ID_Propietario");
+            builder.Property(x => x.Propietario_ID)
+                .HasColumnName("Propietario_ID");
 
             builder.Property(x => x.Titulo)
                .HasColumnName("titulo");

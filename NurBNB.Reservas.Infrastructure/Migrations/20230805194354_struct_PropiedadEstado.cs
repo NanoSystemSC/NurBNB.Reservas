@@ -15,8 +15,8 @@ namespace NurBNB.Reservas.Infrastructure.Migrations
                 name: "propiedad",
                 columns: table => new
                 {
-                    propiedadID = table.Column<Guid>(type: "TEXT", nullable: false),
-                    ID_Propietario = table.Column<string>(type: "TEXT", nullable: false),
+                    ID_Propiedad = table.Column<Guid>(type: "TEXT", nullable: false),
+                    Propietario_ID = table.Column<string>(type: "TEXT", nullable: false),
                     titulo = table.Column<string>(type: "TEXT", maxLength: 100, nullable: false),
                     precio = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     detalle = table.Column<string>(type: "TEXT", maxLength: 300, nullable: false),
@@ -25,7 +25,7 @@ namespace NurBNB.Reservas.Infrastructure.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_propiedad", x => x.propiedadID);
+                    table.PrimaryKey("PK_propiedad", x => x.ID_Propiedad);
                 });
         }
 
