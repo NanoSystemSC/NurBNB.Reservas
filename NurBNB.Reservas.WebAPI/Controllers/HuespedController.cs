@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using NurBNB.Reservas.Application.UserCases.Huesped.Command.CrearHuesped;
+using NurBNB.Reservas.Application.UserCases.Huesped.Query.GetHuespuedList;
 
 namespace NurBNB.Reservas.WebAPI.Controllers
 {
@@ -16,12 +17,25 @@ namespace NurBNB.Reservas.WebAPI.Controllers
         }
 
         [HttpPost]
+        [Route("CrearHuesped")]
         public async Task<IActionResult> CreateHuespued([FromBody] CrearHuespedCommand command)
         {
             var HuespedID = await _mediator.Send(command);
 
             return Ok(HuespedID);
             
+        }
+
+        [HttpGet]
+        [Route("BuscarHuesped")]
+        public async Task<IActionResult> SearchItems(string searchTerm = "")
+        {
+            var huespedes = await _mediator.Send(new GetHuespedListQuery()
+            {
+                SearchTerm = searchTerm
+            });
+
+            return Ok(huespedes);
         }
     }
 }
