@@ -3,17 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MediatR;
-using NurBNB.Reservas.Domain.ValueObjects;
+using NurBNB.Reservas.Domain.Model.Estados;
 
-namespace NurBNB.Reservas.Application.UserCases.Propiedad.Command.CrearPropiedad
+namespace NurBNB.Reservas.Application.Dto.Propiedad
 {
-    public class CrearPropiedadCommand : IRequest<Guid>
+    public class PropiedadDto
     {
+
+        public Guid PropiedadID { get; set; }
         public string ID_Propietario { get;  set; }
+        
         public string Titulo { get;  set; }
-        public decimal Precio { get;  set; }
+        public decimal Precio { get;  set; }       
         public string Detalle { get;  set; }
         public string ubicacion { get;  set; }
+        public string Estado { get;  set; }
     }
 }

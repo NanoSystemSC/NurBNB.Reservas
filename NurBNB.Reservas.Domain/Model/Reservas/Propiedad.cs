@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using NurBNB.Reservas.Domain.Model.Estados;
 using NurBNB.Reservas.Domain.ValueObjects;
 using NurBNB.Reservas.SharedKernel.Core;
 
@@ -13,11 +14,13 @@ namespace NurBNB.Reservas.Domain.Model.Reservas
         //public Guid ID_Propietario { get; private set; }
         public string ID_Propietario { get; private set; }
         public string Titulo { get; private set; }
-        //public PrecioValue Precio { get; private set; }
-        public decimal Precio { get; private set; }
+        public PrecioValue Precio { get; private set; }
+        //public decimal Precio { get; private set; }
         public string Detalle { get; private set; }
         public string ubicacion { get; private set; }
 
+        public TipoEstadoReserva Estado { get; private set; }
+       
         public Propiedad(string iD_Propietario, string titulo, decimal precio, string detalle, string ubicacion)
         {
             Id = Guid.NewGuid();
@@ -26,6 +29,7 @@ namespace NurBNB.Reservas.Domain.Model.Reservas
             Precio = precio;
             Detalle = detalle;
             this.ubicacion = ubicacion;
+            Estado = TipoEstadoReserva.Disponible;
         }
 
         private Propiedad() { }

@@ -22,14 +22,8 @@ namespace NurBNB.Reservas.Domain.ValueObjects
             Value = value;
         }
 
-        public static implicit operator decimal(PrecioValue value)
-        {
-            return value.Value;
-        }
+        public static implicit operator decimal(PrecioValue costo) => costo.Value;
 
-        public static implicit operator PrecioValue(decimal value)
-        {
-            return new PrecioValue(value);
-        }
+        public static implicit operator PrecioValue(decimal value) => new(value);
     }
 }

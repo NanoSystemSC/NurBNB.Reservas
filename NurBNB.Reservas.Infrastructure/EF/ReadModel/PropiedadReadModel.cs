@@ -38,5 +38,9 @@ namespace NurBNB.Reservas.Infrastructure.EF.ReadModel
         [Required]
         public string Ubicacion { get;  set; }
 
+        [Column("estado")]
+        [Required]
+        public string Estado { get; set; }
+
     }
 }

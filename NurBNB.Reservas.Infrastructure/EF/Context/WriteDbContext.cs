@@ -28,14 +28,14 @@ namespace NurBNB.Reservas.Infrastructure.EF.Context
             var huespedConfig = new HuespedConfig();
             modelBuilder.ApplyConfiguration(huespedConfig);
 
-            //var propiedadConfig = new PropiedadConfig();
-            //modelBuilder.ApplyConfiguration(propiedadConfig);
+            var propiedadConfig = new PropiedadConfig();
+            modelBuilder.ApplyConfiguration(propiedadConfig);
 
             //var transaccionConfig = new TransaccionConfig();
             //modelBuilder.ApplyConfiguration<Transaccion>(transaccionConfig);
             //modelBuilder.ApplyConfiguration<TransaccionItem>(transaccionConfig);
 
-            
+
             modelBuilder.Ignore<DomainEvent>();
             //modelBuilder.Ignore<TransaccionConfirmada>();
         }

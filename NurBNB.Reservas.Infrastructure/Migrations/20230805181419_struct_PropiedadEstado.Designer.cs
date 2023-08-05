@@ -11,8 +11,8 @@ using NurBNB.Reservas.Infrastructure.EF.Context;
 namespace NurBNB.Reservas.Infrastructure.Migrations
 {
     [DbContext(typeof(ReadDbContext))]
-    [Migration("20230805150557_struct_Propiedad")]
-    partial class struct_Propiedad
+    [Migration("20230805181419_struct_PropiedadEstado")]
+    partial class struct_PropiedadEstado
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -98,6 +98,11 @@ namespace NurBNB.Reservas.Infrastructure.Migrations
                         .HasMaxLength(300)
                         .HasColumnType("TEXT")
                         .HasColumnName("detalle");
+
+                    b.Property<string>("Estado")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("estado");
 
                     b.Property<string>("ID_Propietario")
                         .IsRequired()

@@ -96,6 +96,11 @@ namespace NurBNB.Reservas.Infrastructure.Migrations
                         .HasColumnType("TEXT")
                         .HasColumnName("detalle");
 
+                    b.Property<string>("Estado")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("estado");
+
                     b.Property<string>("ID_Propietario")
                         .IsRequired()
                         .HasColumnType("TEXT")

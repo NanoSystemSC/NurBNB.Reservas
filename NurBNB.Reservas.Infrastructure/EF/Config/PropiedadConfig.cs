@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NurBNB.Reservas.Domain.Model.Clientes;
+using NurBNB.Reservas.Domain.Model.Estados;
 using NurBNB.Reservas.Domain.Model.Reservas;
 using NurBNB.Reservas.Domain.ValueObjects;
 
@@ -29,16 +30,16 @@ namespace NurBNB.Reservas.Infrastructure.EF.Config
             builder.Property(x => x.Titulo)
                .HasColumnName("titulo");
 
-            //var precioConverter = new ValueConverter<PrecioValue, decimal>(
-            //    costoValue => costoValue.Value,
-            //    costo => new PrecioValue(costo)
-            //);
+            var precioConverter = new ValueConverter<PrecioValue, decimal>(
+                costoValue => costoValue.Value,
+                costo => new PrecioValue(costo)
+            );
 
-            //builder.Property(x => x.Precio)   
-            //    .HasConversion(precioConverter)
-            //    .HasColumnName("precio");
             builder.Property(x => x.Precio)
-               .HasColumnName("precio");
+                .HasConversion(precioConverter)
+                .HasColumnName("precio");
+            //builder.Property(x => x.Precio)
+            //   .HasColumnName("precio");
 
             builder.Property(x => x.Detalle)
                .HasColumnName("detalle");
@@ -46,6 +47,19 @@ namespace NurBNB.Reservas.Infrastructure.EF.Config
             builder.Property(x => x.ubicacion)
                .HasColumnName("ubicacion");
 
+            //builder.Property(x => x.Estado)
+            //    .HasColumnName("estado");
+
+            var tipoConverter = new ValueConverter<TipoEstadoReserva, string>(
+           tipoEnumValue => tipoEnumValue.ToString(),
+           tipo => (TipoEstadoReserva)Enum.Parse(typeof(TipoEstadoReserva), tipo)
+       );
+
+            builder.Property(x => x.Estado)
+                 .HasConversion(tipoConverter)
+                 .HasColumnName("estado")
+                 .HasMaxLength(20)
+                 .IsRequired();
 
             builder.Ignore("_domainEvents");
             builder.Ignore(x => x.DomainEvents);

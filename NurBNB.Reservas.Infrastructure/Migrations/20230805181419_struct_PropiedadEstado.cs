@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace NurBNB.Reservas.Infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class struct_Propiedad : Migration
+    public partial class struct_PropiedadEstado : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -20,7 +20,8 @@ namespace NurBNB.Reservas.Infrastructure.Migrations
                     titulo = table.Column<string>(type: "TEXT", maxLength: 100, nullable: false),
                     precio = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     detalle = table.Column<string>(type: "TEXT", maxLength: 300, nullable: false),
-                    ubicacion = table.Column<string>(type: "TEXT", maxLength: 150, nullable: false)
+                    ubicacion = table.Column<string>(type: "TEXT", maxLength: 150, nullable: false),
+                    estado = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {

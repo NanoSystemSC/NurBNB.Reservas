@@ -8,7 +8,7 @@ namespace NurBNB.Reservas.Domain.Model.Estados
 {
     public enum TipoEstadoReserva
     {
-        //Disponible,
+        Disponible,
         Solicitado,
         Reservado,
         Cancelado
