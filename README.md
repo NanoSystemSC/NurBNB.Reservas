@@ -3,6 +3,7 @@ Dominio para Microservicios de Reservas
 
 MicroServicio para la gestion de Reservas de Propiedades.
 Este microservicio, tiene la funcionalidad de gestionar las reservas que el huesped puede realizar para la aplicacion NurBnb.
+Desde crear huesped hasta cancelar una reserva realizada.
 
 Se adicionaron los siguientes Servicios:
 
@@ -20,5 +21,5 @@ Se adicionaron los siguientes Servicios:
 * Cancelar Reserva
 	- Cancelar Reserva y generar pago de devolucion de acuerdo a sus dias de cancelacion.
 	
-	
+	 
 
