@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using NurBNB.Reservas.Domain.Model.Cancelacion;
 using NurBNB.Reservas.Domain.Model.Clientes;
 using NurBNB.Reservas.Domain.Model.Reservas;
 using NurBNB.Reservas.Infrastructure.EF.Config;
@@ -17,6 +18,10 @@ namespace NurBNB.Reservas.Infrastructure.EF.Context
         public virtual DbSet<Propiedad> Propiedad { set; get; }
 
         public virtual DbSet<Reserva> Reserva { set; get; }
+
+        public virtual DbSet<CancelarReserva> CancelarReservas { set; get; }
+
+        public virtual DbSet<TipoCancelacion> TipoCancelacion { set; get; }
 
         public WriteDbContext(DbContextOptions<WriteDbContext> options) : base(options)
         {
@@ -34,6 +39,12 @@ namespace NurBNB.Reservas.Infrastructure.EF.Context
 
             var reservaConfig = new ReservaConfig();
             modelBuilder.ApplyConfiguration(reservaConfig);
+
+            var cancelarConfig = new CancelarConfig();
+            modelBuilder.ApplyConfiguration(cancelarConfig);
+
+            var TipoCancelacionConfig = new TipoCancelacionConfig();
+            modelBuilder.ApplyConfiguration(TipoCancelacionConfig);
 
             //var transaccionConfig = new TransaccionConfig();
             //modelBuilder.ApplyConfiguration<Transaccion>(transaccionConfig);

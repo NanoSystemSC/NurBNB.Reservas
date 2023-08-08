@@ -19,6 +19,10 @@ namespace NurBNB.Reservas.Infrastructure.EF.Context
 
         public virtual DbSet<ReservaReadModel> Reserva { get; set; }
 
+        public virtual DbSet<CancelarReadModel> CancelarReserva { get; set; }
+
+        public virtual DbSet<TipoCancelacionReadModel> TipoCancelacion { get; set; }
+
 
         public ReadDbContext(DbContextOptions<ReadDbContext> options) : base(options)
         {

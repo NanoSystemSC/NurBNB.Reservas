@@ -17,7 +17,7 @@ namespace NurBNB.Reservas.Domain.Model.Reservas
         public DateTime FechaCheckOut { get; private set; }
         public DateTime FechaRegistro { get; private set; }
         public string Motivo { get; private set; }
-        public TipoEstadoReserva Estado { get; private set; }
+        public TipoEstadoReserva Estado { get; set; }
 
         public Reserva(Guid huespedID, Guid propiedadID, DateTime fechaCheckIn, DateTime fechaCheckOut, string motivo)
         {

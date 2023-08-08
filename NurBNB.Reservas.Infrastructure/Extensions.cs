@@ -44,6 +44,9 @@ namespace NurBNB.Reservas.Infrastructure
             services.AddScoped<IPropiedadRepository, PropiedadRepository>();
             services.AddScoped<IReservaRepository, ReservaRepository>();
 
+            services.AddScoped<ICancelarReservaRepository, CancelarReservaRepository>();
+            services.AddScoped<ITipoCancelacionRepository, TipoCancelacionRepository>();
+
             using var scope = services.BuildServiceProvider().CreateScope();
             if (!isDevelopment)
             {
