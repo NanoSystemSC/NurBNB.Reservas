@@ -14,8 +14,8 @@ namespace NurBNB.Reservas.Application.UserCases.Reserva.Command.CrearReserva
         public Guid PropiedadID { get;  set; }
         public DateTime FechaCheckIn { get;  set; }
         public DateTime FechaCheckOut { get;  set; }
-        public DateTime FechaRegistro { get;  set; }
+        //public DateTime FechaRegistro { get;  set; }
         public string Motivo { get;  set; }
-        public string Estado { get;  set; }
+        //public string Estado { get;  set; }
     }
 }

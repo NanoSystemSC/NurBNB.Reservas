@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using NurBNB.Reservas.Domain.Model.Reservas;
 using NurBNB.Reservas.Domain.Repositories;
 using NurBNB.Reservas.Infrastructure.EF.Context;
@@ -19,17 +20,18 @@ namespace NurBNB.Reservas.Infrastructure.EF.Repositories
         }
         public async Task CreateAsync(Reserva obj)
         {
-           
+            await _context.AddAsync(obj);
         }
 
-        public Task<Reserva?> FindByIdAsync(Guid id)
+        public async Task<Reserva?> FindByIdAsync(Guid id)
         {
-            throw new NotImplementedException();
+            return await _context.Reserva.SingleOrDefaultAsync(p => p.Id == id);
         }
 
         public Task UpdateAsync(Reserva reserva)
         {
-            throw new NotImplementedException();
+            _context.Reserva.Update(reserva);
+            return Task.CompletedTask;
         }
     }
 }

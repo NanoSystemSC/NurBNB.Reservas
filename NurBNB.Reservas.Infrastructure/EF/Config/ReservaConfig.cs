@@ -26,7 +26,7 @@ namespace NurBNB.Reservas.Infrastructure.EF.Config
                 .HasColumnName("Huesped_ID");
 
             builder.Property(x => x.PropiedadID)
-               .HasColumnName("Propietario_ID");
+               .HasColumnName("Propiedad_ID");
 
             builder.Property(x => x.FechaCheckIn)
                 .HasColumnName("FechaCheckin");
