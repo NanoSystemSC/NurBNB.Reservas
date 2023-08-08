@@ -29,8 +29,7 @@ namespace NurBNB.Reservas.Infrastructure.EF.Repositories
         public CancelarReservaRepository(WriteDbContext context, IReservaRepository reservaRepository, ITipoCancelacionRepository tipoCancelacion)
         {
             _context = context;
-            _reservaRepository = reservaRepository;
-            //_option = configuration;
+            _reservaRepository = reservaRepository;            
             _tipoCancelacionRepository = tipoCancelacion;
         }
 
@@ -54,8 +53,6 @@ namespace NurBNB.Reservas.Infrastructure.EF.Repositories
 
             await _context.CancelarReservas.AddAsync(obj);
 
-            //_reserva.Estado = TipoEstadoReserva.Cancelado;
-            //_context.Reserva.Update(_reserva);
             updateStatusReserve(_reserva);
 
         }
