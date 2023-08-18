@@ -29,7 +29,7 @@ namespace NurBNB.Reservas.Infrastructure.EF.Context
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
+        {   
             base.OnModelCreating(modelBuilder);
         }
     }
