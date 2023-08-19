@@ -20,6 +20,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NurBNB.Reservas.SharedTest", "NurBNB.Reservas.SharedTest\NurBNB.Reservas.SharedTest.csproj", "{246E5B51-049C-4B2B-9F1C-BC963CF2354F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -46,6 +48,10 @@ Global
 		{C49D9914-F8F6-431E-8922-11906C1685FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C49D9914-F8F6-431E-8922-11906C1685FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C49D9914-F8F6-431E-8922-11906C1685FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{246E5B51-049C-4B2B-9F1C-BC963CF2354F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{246E5B51-049C-4B2B-9F1C-BC963CF2354F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{246E5B51-049C-4B2B-9F1C-BC963CF2354F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{246E5B51-049C-4B2B-9F1C-BC963CF2354F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
