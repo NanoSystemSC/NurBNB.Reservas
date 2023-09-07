@@ -10,13 +10,19 @@ using NurBNB.Reservas.Infrastructure.EF.Context;
 
 namespace NurBNB.Reservas.Infrastructure.EF.Repositories
 {
-    internal class ReservaRepository : IReservaRepository
+    public class ReservaRepository : IReservaRepository
     {
         private readonly WriteDbContext _context;
 
+        
         public ReservaRepository(WriteDbContext context)
         {
             _context = context;
+        }
+
+        public ReservaRepository()
+        {
+            
         }
         public async Task CreateAsync(Reserva obj)
         {

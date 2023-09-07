@@ -30,7 +30,13 @@ namespace NurBNB.Reservas.Application.UserCases.Reserva.Command.CrearReserva
             await _reservaRepository.CreateAsync(reservaCreada);
             await _unitOfWork.Commit();
 
-            return reservaCreada.Id;
+            Guid _guid = Guid.NewGuid();
+            if(reservaCreada!=null)
+            {
+                _guid = reservaCreada.Id;
+            }
+
+            return _guid;
         }
     }
 }

@@ -31,7 +31,16 @@ namespace NurBNB.Reservas.Application.UserCases.Propiedad.Command.CrearPropiedad
             await _propiedadRepository.CreateAsync(propiedadCreada);
             await _unitOfWork.Commit();
 
-            return propiedadCreada.Id;
+
+            Guid _guid = Guid.NewGuid();
+            if (propiedadCreada != null)
+            {
+                _guid = propiedadCreada.Id;
+            }
+
+            return _guid;
+
+            
         }
     }
 }

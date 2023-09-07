@@ -12,7 +12,7 @@ using NurBNB.Reservas.SharedKernel.Core;
 
 namespace NurBNB.Reservas.Infrastructure.EF.Context
 {
-    internal class WriteDbContext: DbContext
+    public class WriteDbContext: DbContext
     {
         public virtual DbSet<Huesped> Huesped { set; get; }
         public virtual DbSet<Propiedad> Propiedad { set; get; }
