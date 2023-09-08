@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +14,7 @@ using NurBNB.Reservas.Domain.ValueObjects;
 
 namespace NurBNB.Reservas.Infrastructure.EF.Config
 {
+    [ExcludeFromCodeCoverage]
     internal class PropiedadConfig : IEntityTypeConfiguration<Propiedad>
     {
         public void Configure(EntityTypeBuilder<Propiedad> builder)

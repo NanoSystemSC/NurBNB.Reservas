@@ -25,13 +25,23 @@ namespace NurBNB.Reservas.Application.UserCases.Huesped.Command.CrearHuesped
 
         public async Task<Guid> Handle(CrearHuespedCommand request, CancellationToken cancellationToken)
         {
+            if (string.IsNullOrEmpty(request.Nombre))
+                throw new ArgumentException("Debe ingresar un nombre del Huesped");
+
+            if (string.IsNullOrEmpty(request.Apellidos))
+                throw new ArgumentException("Debe ingresar un Apellido del Huesped");
+
+            if (string.IsNullOrEmpty(request.Email))
+                throw new ArgumentException("Debe ingresar un Mail del Huesped");
+
+
             var huespedCreado = _huespedFactory.Create(request.Nombre, request.Apellidos, request.Telefono, 
                 request.NroDoc, request.Email, request.Calle, request.Ciudad, request.Pais, request.Codigo_postal);
 
             await _huespedRepository.CreateAsync(huespedCreado);
             await _unitofWork.Commit();
 
-            return huespedCreado.Id;
+            return (huespedCreado!= null ? huespedCreado.Id : Guid.NewGuid());
         }
     }
 }

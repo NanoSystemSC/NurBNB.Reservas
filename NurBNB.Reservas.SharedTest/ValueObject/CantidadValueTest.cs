@@ -1,8 +1,10 @@
 using NurBNB.Reservas.SharedKernel.Core;
 using NurBNB.Reservas.SharedKernel.ValueObjects;
+using System.Diagnostics.CodeAnalysis;
 
 namespace NurBNB.Reservas.SharedTest.ValueObject
 {
+    [ExcludeFromCodeCoverage]
     public class CantidadValueTest
     {
         [Theory]
@@ -20,8 +22,7 @@ namespace NurBNB.Reservas.SharedTest.ValueObject
         public void ValorMenorACero()
         {
             int valorEsperado = -5;
-            //CantidadValue valorAverificar = new CantidadValue(valorEsperado);
-
+           
             Assert.Throws<BussinessRuleValidationException>(() =>  new CantidadValue(valorEsperado));
         }
 

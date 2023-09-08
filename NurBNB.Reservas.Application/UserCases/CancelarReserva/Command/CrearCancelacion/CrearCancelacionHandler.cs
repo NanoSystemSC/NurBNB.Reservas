@@ -16,30 +16,26 @@ namespace NurBNB.Reservas.Application.UserCases.CancelarReserva.Command.CrearRes
         private readonly ICancelarFactory _cancelarFactory;
         private readonly ICancelarReservaRepository _cancelarRepository;
         private readonly IUnitOfWork _unitOfWork;
-        private readonly IReservaRepository _reservaRepository;
-
-       
 
         public CrearCancelacionHandler(ICancelarFactory cancelarFactory, ICancelarReservaRepository cancelarRepository, 
-            IUnitOfWork unitOfWork, IReservaRepository reservaRepository)
+            IUnitOfWork unitOfWork)
         {
             _cancelarFactory = cancelarFactory;
             _cancelarRepository = cancelarRepository;
-            _unitOfWork = unitOfWork;
-            _reservaRepository = reservaRepository;
+            _unitOfWork = unitOfWork;           
         }
 
         public async Task<Guid> Handle(CrearCancelacionCommand request, CancellationToken cancellationToken)
         {
-
-            //var objReserva = await _reservaRepository.FindByIdAsync(request.ReservaID);
+            if (string.IsNullOrEmpty(request.Motivo))
+                throw new ArgumentException("Debe ingresar el Motivo por el cual quiere realizar la cancelacion");
 
             var cancelacionCreada = _cancelarFactory.Create(request.ReservaID, DateTime.Now, false, 0, request.Motivo);
 
             await _cancelarRepository.CreateAsync(cancelacionCreada);
             await _unitOfWork.Commit();
 
-            return cancelacionCreada.Id;
+            return (cancelacionCreada != null ? cancelacionCreada.Id : Guid.NewGuid());
         }
     }
 }

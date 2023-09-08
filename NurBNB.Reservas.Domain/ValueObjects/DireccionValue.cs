@@ -17,7 +17,7 @@ namespace NurBNB.Reservas.Domain.ValueObjects
 
         public DireccionValue(string calle, string ciudad, string pais, string codigo_postal)
         {
-            if (string.IsNullOrWhiteSpace( calle))
+            if (string.IsNullOrWhiteSpace(calle))
             {
                 throw new BussinessRuleValidationException("Cantidad value cannot be negative");
             }
@@ -44,14 +44,5 @@ namespace NurBNB.Reservas.Domain.ValueObjects
 
         }
 
-        public static implicit operator string(DireccionValue calle)
-        {
-            return calle.Calle;
-        }
-
-        public static implicit operator DireccionValue(string calle)
-        {
-            return new DireccionValue(calle);
-        }
     }
 }

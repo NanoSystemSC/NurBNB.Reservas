@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,7 +30,7 @@ namespace NurBNB.Reservas.Domain.Model.Clientes
 
         //internal Huesped(Guid id, string nombre, string apellidos, string telefono, string nrodoc, string email, DireccionValue direccion)
         //internal Huesped(string nombre, string apellidos, string telefono, string nrodoc, string email, DireccionValue direccion)
-        internal Huesped(string nombre, string apellidos, string telefono, string nrodoc, string email, string calle, string ciudad, string pais, string codigo_postal)
+        public Huesped(string nombre, string apellidos, string telefono, string nrodoc, string email, string calle, string ciudad, string pais, string codigo_postal)
         {
             Id = Guid.NewGuid();
             Nombre = nombre;
@@ -44,6 +45,7 @@ namespace NurBNB.Reservas.Domain.Model.Clientes
             Codigo_postal = codigo_postal;
         }
 
+        [ExcludeFromCodeCoverage]
         private Huesped() { }
 
     }

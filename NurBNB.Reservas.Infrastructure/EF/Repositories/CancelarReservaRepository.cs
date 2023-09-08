@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,6 +19,7 @@ using NurBNB.Reservas.Infrastructure.EF.Context;
 
 namespace NurBNB.Reservas.Infrastructure.EF.Repositories
 {
+    [ExcludeFromCodeCoverage]
     internal class CancelarReservaRepository : ICancelarReservaRepository
     {
         private readonly WriteDbContext _context;
@@ -57,6 +59,7 @@ namespace NurBNB.Reservas.Infrastructure.EF.Repositories
 
         }
 
+        [ExcludeFromCodeCoverage]
         private void updateStatusReserve(Reserva reserva)
         {
             reserva.Estado = TipoEstadoReserva.Cancelado;

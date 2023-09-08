@@ -25,18 +25,20 @@ namespace NurBNB.Reservas.Application.UserCases.Reserva.Command.CrearReserva
 
         public async Task<Guid> Handle(CrearReservaCommand request, CancellationToken cancellationToken)
         {
+            if (request.FechaCheckIn > request.FechaCheckOut)
+                throw new ArgumentException("La Fecha de CheckOut no puede ser menor a la Fecha de CheckIn");
+
+
+            if (string.IsNullOrEmpty(request.Motivo))
+                throw new ArgumentException("Debe introducir un Motivo para la Reserva");
+
+
             var reservaCreada = _reservaFactory.Create(request.HuespedID, request.PropiedadID, request.FechaCheckIn, request.FechaCheckOut, request.Motivo);
 
             await _reservaRepository.CreateAsync(reservaCreada);
             await _unitOfWork.Commit();
 
-            Guid _guid = Guid.NewGuid();
-            if(reservaCreada!=null)
-            {
-                _guid = reservaCreada.Id;
-            }
-
-            return _guid;
+            return (reservaCreada != null ? reservaCreada.Id : Guid.NewGuid());
         }
     }
 }

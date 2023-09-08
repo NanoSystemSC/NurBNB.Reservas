@@ -25,21 +25,22 @@ namespace NurBNB.Reservas.Application.UserCases.Propiedad.Command.CrearPropiedad
 
         public async Task<Guid> Handle(CrearPropiedadCommand request, CancellationToken cancellationToken)
         {
+            if (string.IsNullOrEmpty(request.Titulo))
+                throw new ArgumentException("Debe registrar un Titulo a la propiedad");
+
+            if (string.IsNullOrEmpty(request.Detalle))
+                throw new ArgumentException("Debe registrar un Detalle de la propiedad");
+
+            if (string.IsNullOrEmpty(request.ubicacion))
+                throw new ArgumentException("Debe registrar la ubicacion de la propiedad");
+
             var propiedadCreada = _propiedadFactory.Create(request.Propietario_ID, request.Titulo, request.Precio,
                  request.Detalle, request.ubicacion);
 
             await _propiedadRepository.CreateAsync(propiedadCreada);
             await _unitOfWork.Commit();
 
-
-            Guid _guid = Guid.NewGuid();
-            if (propiedadCreada != null)
-            {
-                _guid = propiedadCreada.Id;
-            }
-
-            return _guid;
-
+            return (propiedadCreada != null ? propiedadCreada.Id : Guid.NewGuid());
             
         }
     }

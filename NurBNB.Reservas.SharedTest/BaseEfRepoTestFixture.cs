@@ -8,9 +8,11 @@ using System.Linq;
 using System.Text;
 using NurBNB.Reservas.Infrastructure.EF.Context;
 using System.Threading.Tasks;
+using System.Diagnostics.CodeAnalysis;
 
 namespace NurBNB.Reservas.Test
 {
+    [ExcludeFromCodeCoverage]
     public abstract class BaseEfRepoTestFixture
     {
         //protected AppDbContext _dbContext;

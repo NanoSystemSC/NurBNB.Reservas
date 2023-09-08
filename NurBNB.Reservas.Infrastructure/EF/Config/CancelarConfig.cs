@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,6 +11,7 @@ using NurBNB.Reservas.Domain.Model.Reservas;
 
 namespace NurBNB.Reservas.Infrastructure.EF.Config
 {
+    [ExcludeFromCodeCoverage]
     internal class CancelarConfig : IEntityTypeConfiguration<CancelarReserva>
     {
         public void Configure(EntityTypeBuilder<CancelarReserva> builder)

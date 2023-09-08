@@ -13,7 +13,7 @@ namespace NurBNB.Reservas.Domain.Model.Estados
         public int TipoEstado { get; set; }
         public string Descripcion { get; set; }
 
-        internal Estado(Guid id, int tipoEstado, string descripcion)
+        public Estado(Guid id, int tipoEstado, string descripcion)
         {
             ID_Estado = id;
             TipoEstado = tipoEstado;

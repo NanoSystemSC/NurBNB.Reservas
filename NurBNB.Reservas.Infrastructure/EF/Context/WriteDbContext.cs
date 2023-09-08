@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,7 @@ using NurBNB.Reservas.SharedKernel.Core;
 
 namespace NurBNB.Reservas.Infrastructure.EF.Context
 {
+    [ExcludeFromCodeCoverage]
     public class WriteDbContext: DbContext
     {
         public virtual DbSet<Huesped> Huesped { set; get; }

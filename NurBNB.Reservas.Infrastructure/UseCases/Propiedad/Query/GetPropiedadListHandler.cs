@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +14,7 @@ using NurBNB.Reservas.Infrastructure.EF.ReadModel;
 
 namespace NurBNB.Reservas.Infrastructure.UseCases.Propiedad.Query
 {
+    [ExcludeFromCodeCoverage]
     internal class GetPropiedadListHandler : IRequestHandler<GetPropiedadDisponiblesQuery, ICollection<PropiedadDto>>
     {
         private readonly DbSet<PropiedadReadModel> _propiedades;

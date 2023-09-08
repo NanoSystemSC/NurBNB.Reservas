@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -10,8 +11,10 @@ using NurBNB.Reservas.Domain.Model.Clientes;
 
 namespace NurBNB.Reservas.Application
 {
+    [ExcludeFromCodeCoverage]
     public static class Extensions
     {
+        
         public static IServiceCollection AddApplication(this IServiceCollection services)
         {
             services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));

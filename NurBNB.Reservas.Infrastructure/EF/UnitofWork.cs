@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,6 +10,7 @@ using NurBNB.Reservas.SharedKernel.Core;
 
 namespace NurBNB.Reservas.Infrastructure.EF
 {
+    [ExcludeFromCodeCoverage]
     internal class UnitofWork : IUnitOfWork
     {
         //private readonly IMediator _mediator;
