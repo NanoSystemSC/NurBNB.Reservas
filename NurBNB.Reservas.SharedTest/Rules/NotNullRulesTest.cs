@@ -1,19 +1,18 @@
 ﻿using NurBNB.Reservas.SharedKernel.Rules;
-using NurBNB.Reservas.SharedKernel.ValueObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NurBNB.Reservas.SharedTest.Rules
+namespace NurBNB.Reservas.Test.Rules
 {
-    public class NotNullRuleTest
+    public class NotNullRulesTest
     {
         [Theory]
-        [InlineData(null, false)]
         [InlineData("Fernando", true)]
-        public void ObjectoNulo(string valorEsperado, bool resultadoEsperado)
+        [InlineData(null, false)]
+        public void ObjectosNulo(object valorEsperado, bool resultadoEsperado)
         {
             NotNullRule rule = new NotNullRule(valorEsperado);
             bool esValido = rule.IsValid();

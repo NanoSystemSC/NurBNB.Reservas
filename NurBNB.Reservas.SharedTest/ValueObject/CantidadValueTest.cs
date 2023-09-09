@@ -13,7 +13,7 @@ namespace NurBNB.Reservas.SharedTest.ValueObject
         public void ValorMayorIgualACero(int valorEsperado)
         {
             //int valorEsperado = 10;
-            CantidadValue valorAverificar = new CantidadValue(valorEsperado);
+            CantidadValue valorAverificar = new CantidadValue(valorEsperado); 
 
             Assert.Equal(valorEsperado, valorAverificar.Value);
         }

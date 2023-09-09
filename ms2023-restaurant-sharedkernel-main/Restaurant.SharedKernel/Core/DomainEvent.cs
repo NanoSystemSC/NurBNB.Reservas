@@ -1,7 +1,8 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 
 namespace NurBNB.Reservas.SharedKernel.Core;
-
+[ExcludeFromCodeCoverage]
 public abstract record DomainEvent 
 {
     public DateTime OccuredOn { get; }

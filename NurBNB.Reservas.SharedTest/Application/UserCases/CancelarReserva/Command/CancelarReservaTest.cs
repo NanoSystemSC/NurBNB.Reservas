@@ -17,8 +17,6 @@ namespace NurBNB.Reservas.Test.Application.UserCases.CancelarReserva.Command
    
     public class CancelarReservaTest
     {
-
-
         Mock<ICancelarReservaRepository> _cancelarReservaRepository;
         Mock<IUnitOfWork> _unitOfWork;
         Mock<ICancelarFactory> _cancelarReservaFactory;
@@ -41,15 +39,12 @@ namespace NurBNB.Reservas.Test.Application.UserCases.CancelarReserva.Command
                 Motivo = "Motivo de Prueba"
             };
 
-
             // Act
             var handler = new CrearCancelacionHandler(_cancelarReservaFactory.Object, _cancelarReservaRepository.Object, _unitOfWork.Object);
-
             var respuestaEsperada = await handler.Handle(cancelacion, new CancellationTokenSource(1000).Token);
 
             // Assert
             Assert.True(respuestaEsperada.Equals(respuestaEsperada));
-
         }
 
         [Fact]

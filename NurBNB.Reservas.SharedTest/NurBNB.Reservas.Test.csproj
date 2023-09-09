@@ -24,7 +24,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ms2023-restaurant-sharedkernel-main\Restaurant.SharedKernel\NurBNB.Reservas.SharedKernel.csproj" />
     <ProjectReference Include="..\NurBNB.Reservas.Application\NurBNB.Reservas.Application.csproj" />
     <ProjectReference Include="..\NurBNB.Reservas.Domain\NurBNB.Reservas.Domain.csproj" />
     <ProjectReference Include="..\NurBNB.Reservas.Infrastructure\NurBNB.Reservas.Infrastructure.csproj" />
