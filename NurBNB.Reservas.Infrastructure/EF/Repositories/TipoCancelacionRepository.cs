@@ -34,8 +34,11 @@ namespace NurBNB.Reservas.Infrastructure.EF.Repositories
         public async Task<TipoCancelacion?> FindByFechaAsync(DateTime FechaCheckIn)
         {
             var diffOfDates = DateTime.Now - FechaCheckIn;
+            int dias = diffOfDates.Days;
+            if (dias < 0)
+                dias = Math.Abs(dias);
 
-            return await _context.TipoCancelacion.FirstOrDefaultAsync(x => diffOfDates.Days >= x.Dia_Ini && diffOfDates.Days <= x.Dia_Fin);
+            return await _context.TipoCancelacion.FirstOrDefaultAsync(x => dias >= x.Dia_Ini && diffOfDates.Days <= x.Dia_Fin);
         }
 
         public Task UpdateAsync(TipoCancelacion tipoCancelacion)

@@ -22,6 +22,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NurBNB.Reservas.Test", "NurBNB.Reservas.SharedTest\NurBNB.Reservas.Test.csproj", "{246E5B51-049C-4B2B-9F1C-BC963CF2354F}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Pruebas PostMan", "Pruebas PostMan", "{06C365D2-7443-4661-B1B2-732F6DD7882C}"
+	ProjectSection(SolutionItems) = preProject
+		C:\Users\Fernando S\Desktop\NurBNB.postman_collection.json = C:\Users\Fernando S\Desktop\NurBNB.postman_collection.json
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
