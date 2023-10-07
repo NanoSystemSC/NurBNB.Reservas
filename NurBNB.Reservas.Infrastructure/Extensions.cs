@@ -28,8 +28,8 @@ namespace NurBNB.Reservas.Infrastructure
 
         private static void AddDatabase(IServiceCollection services, IConfiguration configuration, bool isDevelopment)
         {
-            var connectionString =
-                    configuration.GetConnectionString("ReservasDbConnectionString");
+            //var connectionString = configuration.GetConnectionString("ReservasDbConnectionString");
+            var connectionString = "Data Source = Reservas.sqlite";
             //services.AddDbContext<ReadDbContext>(context =>
             //        context.UseSqlServer(connectionString));
             //services.AddDbContext<WriteDbContext>(context =>
