@@ -1,0 +1,18 @@
+version: "1.0"
+services:
+  reserva: # servicio de reserva
+    image: ferfsc/bnb-reservas:1.6
+    ports:
+      - 32034:80
+    networks:
+      - bnb-nur-net   
+  pagos: # servicio de pagos
+    image: minenurdocker/bnb-pagos:1.0
+    ports:
+      - 32035:80
+    networks:
+      - bnb-nur-net 
+volumes:
+  bnb-nur:
+networks:
+  bnb-nur-net:
