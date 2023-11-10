@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34018.315
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NurBNB.Reservas.Gateway", "NurBNB.Reservas.Gateway.csproj", "{36FE10B7-92CA-4BD8-8D5E-B8186311B5E7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{36FE10B7-92CA-4BD8-8D5E-B8186311B5E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36FE10B7-92CA-4BD8-8D5E-B8186311B5E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36FE10B7-92CA-4BD8-8D5E-B8186311B5E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36FE10B7-92CA-4BD8-8D5E-B8186311B5E7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {10FC0CF8-AB4E-4922-A7C7-3AD89A054090}
+	EndGlobalSection
+EndGlobal

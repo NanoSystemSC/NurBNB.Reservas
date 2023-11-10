@@ -8,15 +8,14 @@ services:
       - bnb-nur-net   
     volumes:
       - reserva-data:/app
-    deploy:
-      replicas: 3
-      update_config:
-        parallelism: 2
-      restart_policy:
-        condition: on-fail
+    # deploy:
+    #   replicas: 3
+    #   update_config:
+    #     parallelism: 2
+      
     healthcheck:
       test: curl --fail http://localhost:32034 || exit 1
-      interval: 30s
+      interval: 10s
       timeout: 10s
       retries: 5
   pagos: # servicio de pagos
@@ -27,15 +26,14 @@ services:
       - bnb-nur-net 
     volumes:
       - pagos-data:/app
-    deploy:
-      replicas: 3
-      update_config:
-        parallelism: 2
-      restart_policy:
-        condition: on-fail
+    # deploy:
+    #   replicas: 3
+    #   update_config:
+    #     parallelism: 2
+      
     healthcheck:
       test: curl --fail http://localhost:32035 || exit 1
-      interval: 30s
+      interval: 10s
       timeout: 10s
       retries: 5
 volumes:

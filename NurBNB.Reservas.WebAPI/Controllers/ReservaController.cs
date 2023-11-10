@@ -25,16 +25,16 @@ namespace NurBNB.Reservas.WebAPI.Controllers
             return Ok(ReservaID);
         }
 
-        //[HttpGet]
-        //[Route("PropiedadesDisponibles")]
-        //public async Task<IActionResult> SearchItems(TipoEstadoReserva tipoEstadoReserva)
-        //{
-        //    var Propiedades = await _mediator.Send(new GetPropiedadDisponiblesQuery()
-        //    {
-        //        estadoReserva = tipoEstadoReserva
-        //    });
+        [HttpGet]
+        [Route("PropiedadesDisponibles")]
+        public async Task<IActionResult> SearchItems(TipoEstadoReserva tipoEstadoReserva)
+        {
+            var Propiedades = await _mediator.Send(new GetPropiedadDisponiblesQuery()
+            {
+                estadoReserva = tipoEstadoReserva
+            });
 
-        //    return Ok(Propiedades);
-        //}
+            return Ok(Propiedades);
+        }
     }
 }

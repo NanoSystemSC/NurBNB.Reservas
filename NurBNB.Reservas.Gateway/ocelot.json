@@ -1,0 +1,65 @@
+{
+  "Routes": [
+    {
+      "Key": "propiedadesDisponibles",
+      "UpstreamPathTemplate": "/api/Reserva/PropiedadesDisponibles", //--- Reserva/PropiedadesDisponibles?tipoEstadoReserva=0
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamPathTemplate": "/api/Reserva/PropiedadesDisponibles", //---
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5222
+
+        }
+      ]
+    },
+    {
+      "Key": "BuscarHuesped",
+      "UpstreamPathTemplate": "/api/Huesped/BuscarHuesped?searchTerm={huespedId}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamPathTemplate": "/api/Huesped/BuscarHuesped?searchTerm={huespedId}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5222
+
+        }
+      ]
+      // ,"AuthenticationOptions": {
+      //  "AuthenticationProviderKey": "Bearer",
+      //  "AllowedScopes": []
+      //}
+    },
+    {
+      "UpstreamPathTemplate": "/api/security/login",
+      "UpstreamHttpMethod": [ "POST" ],
+
+      "DownstreamPathTemplate": "/api/security/login",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7117
+        }
+      ]
+    }
+  ],
+
+  "Aggregates": [
+    {
+      "RouteKeys": [
+        "propiedadesDisponibles",
+        "BuscarHuesped"
+      ],
+      "UpstreamPathTemplate": "/api/propiedad-huesped/{huespedId}",
+      "Aggregator": "HuespedReservaDetailAggregator"
+
+    }
+  ],
+
+  "GlobalConfiguration": {
+    "BaseUrl": "https://localhost:7219"
+  }
+}

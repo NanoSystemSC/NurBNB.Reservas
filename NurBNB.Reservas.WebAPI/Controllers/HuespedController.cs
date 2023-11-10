@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using NurBNB.Reservas.Application.UserCases.Huesped.Command.CrearHuesped;
 using NurBNB.Reservas.Application.UserCases.Huesped.Query.GetHuespuedList;
@@ -26,6 +27,7 @@ namespace NurBNB.Reservas.WebAPI.Controllers
             
         }
 
+       // [Authorize]
         [HttpGet]
         [Route("BuscarHuesped")]
         public async Task<IActionResult> SearchItems(string searchTerm = "")
