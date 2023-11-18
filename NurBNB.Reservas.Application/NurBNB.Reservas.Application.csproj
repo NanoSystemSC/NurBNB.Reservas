@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\NurBNB.Reservas.Domain\NurBNB.Reservas.Domain.csproj" />
+    <ProjectReference Include="..\NurBNB.Reservas.IntegrationEvents\NurBNB.Reservas.IntegrationEvents.csproj" />
   </ItemGroup>
 
 </Project>

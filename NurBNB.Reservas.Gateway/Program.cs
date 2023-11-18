@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using NurBNB.Reservas.Gateway.Aggregator;
 using NurBNB.Reservas.Gateway.Config;
+using NurBNB.Reservas.Gateway.Handlers;
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
 using System.Text;
@@ -40,7 +41,8 @@ builder.Configuration.AddJsonFile("ocelot.json");
 // Add services to the container.
 //builder.Services.AddOcelot();
 builder.Services.AddOcelot()
-                .AddSingletonDefinedAggregator<HuespedReservaDetailAggregator>();
+                .AddSingletonDefinedAggregator<HuespedReservaDetailAggregator>()
+                .AddDelegatingHandler<LogDelegatingHandler>();
                 
 
 builder.Services.AddControllers();

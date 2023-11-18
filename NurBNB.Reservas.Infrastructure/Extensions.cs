@@ -1,16 +1,19 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 using System.Text;
+using MassTransit;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using NurBNB.Reservas.Application;
+using NurBNB.Reservas.Application.Services;
 using NurBNB.Reservas.Domain.Repositories;
 using NurBNB.Reservas.Infrastructure.EF;
 using NurBNB.Reservas.Infrastructure.EF.Context;
 using NurBNB.Reservas.Infrastructure.EF.Repositories;
+using NurBNB.Reservas.Infrastructure.MassTransit;
 using NurBNB.Reservas.Infrastructure.Security;
 using NurBNB.Reservas.SharedKernel.Core;
 
@@ -27,7 +30,9 @@ namespace NurBNB.Reservas.Infrastructure
 
             AddDatabase(services,configuration,isDevelopment);
 
-           // AddAuthentication(services, configuration);
+            // AddAuthentication(services, configuration);
+
+            AddMassTransitWithRabbitMq(services, configuration);
 
             return services;
         }
@@ -83,6 +88,31 @@ namespace NurBNB.Reservas.Infrastructure
                     ValidAudience = jwtoptions.ValidAudience
                 };
             });
+        }
+
+        private static IServiceCollection AddMassTransitWithRabbitMq(IServiceCollection services, IConfiguration configuration)
+        {
+            services.AddScoped<IBusService, MassTransitBusService>();
+
+            var serviceName = configuration.GetValue<string>("ServiceName");
+            var rabbitMQSettings = configuration.GetSection(nameof(RabbitMQSettings)).Get<RabbitMQSettings>();
+
+            services.AddMassTransit(configure =>
+            {
+
+                configure.UsingRabbitMq((context, configurator) =>
+                {
+
+                    configurator.Host(rabbitMQSettings.Host);
+                    configurator.ConfigureEndpoints(context, new KebabCaseEndpointNameFormatter(serviceName, false));
+                    configurator.UseMessageRetry(retryConfigurator =>
+                    {
+                        retryConfigurator.Interval(3, TimeSpan.FromSeconds(5));
+                    });
+                });
+            });
+
+            return services;
         }
     }
 }
