@@ -5,8 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using MediatR;
 using NurBNB.Reservas.Domain.Factories;
+//using NurBNB.Reservas.Domain.Model.Reservas.Events;
 using NurBNB.Reservas.Domain.Repositories;
 using NurBNB.Reservas.SharedKernel.Core;
+using NurBNB.Reservas.Domain.Model.Reservas;
 
 namespace NurBNB.Reservas.Application.UserCases.Reserva.Command.CrearReserva
 {
@@ -33,7 +35,8 @@ namespace NurBNB.Reservas.Application.UserCases.Reserva.Command.CrearReserva
                 throw new ArgumentException("Debe introducir un Motivo para la Reserva");
 
 
-            var reservaCreada = _reservaFactory.Create(request.HuespedID, request.PropiedadID, request.FechaCheckIn, request.FechaCheckOut, request.Motivo);
+            // var reservaCreada = _reservaFactory.Create(request.HuespedID, request.PropiedadID, request.FechaCheckIn, request.FechaCheckOut, request.Motivo);
+            var reservaCreada = NurBNB.Reservas.Domain.Model.Reservas.Reserva.Create(request.HuespedID, request.PropiedadID, request.FechaCheckIn, request.FechaCheckOut, request.Motivo);
 
             await _reservaRepository.CreateAsync(reservaCreada);
             await _unitOfWork.Commit();

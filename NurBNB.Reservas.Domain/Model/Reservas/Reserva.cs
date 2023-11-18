@@ -31,6 +31,15 @@ namespace NurBNB.Reservas.Domain.Model.Reservas
             FechaRegistro = DateTime.Now;
             Estado = TipoEstadoReserva.Solicitado;
             Motivo = motivo;
+
+            //var obj = new Reserva(huespedID, propiedadID, fechaCheckIn, fechaCheckOut, motivo);
+            //AddDomainEvent(new ReservaCreada(
+            //       Id,
+            //       PropiedadID,
+            //       "nombreee"
+            //   ));
+            
+
         }
 
         public static Reserva Create(Guid huespedID, Guid propiedadID, DateTime fechaCheckIn, DateTime fechaCheckOut, string motivo)
