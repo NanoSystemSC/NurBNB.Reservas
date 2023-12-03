@@ -10,27 +10,27 @@ using System.Threading.Tasks;
 
 namespace NurBNB.Reservas.Test.Domain.Factories
 {
-    public class PropiedaFactoryTest
-    {
-        [Fact]
-        public void CrearPropiedadTest()
-        {
-            string propietario_ID = "ID";
-            string titulo = "Titulo";
-            PrecioValue precio = 999;
-            string detalle = "Detalle";
-            string ubicacion = "ubicacoin";
+	public class PropiedaFactoryTest
+	{
+		[Fact]
+		public void CrearPropiedadTest()
+		{
+			string propietario_ID = "ID";
+			string titulo = "Titulo";
+			PrecioValue precio = 999;
+			string detalle = "Detalle";
+			string ubicacion = "ubicacoin";
 
-            PropiedadFactory huespedFactory = new PropiedadFactory();
+			PropiedadFactory huespedFactory = new PropiedadFactory();
 
-            var expectativa = huespedFactory.Create(propietario_ID, titulo, precio, detalle, ubicacion);
+			var expectativa = huespedFactory.Create(propietario_ID, titulo, precio, detalle, ubicacion);
 
-            Assert.Equal(propietario_ID, expectativa.Propietario_ID);
-            Assert.Equal(titulo, expectativa.Titulo);
-            Assert.Equal(precio, expectativa.Precio);
-            Assert.Equal(detalle, expectativa.Detalle);
-            Assert.Equal(ubicacion, expectativa.ubicacion);
-        }
-    }
-    
+			Assert.Equal(propietario_ID, expectativa.PropietarioID);
+			Assert.Equal(titulo, expectativa.Titulo);
+			Assert.Equal(precio, expectativa.Precio);
+			Assert.Equal(detalle, expectativa.Detalle);
+			Assert.Equal(ubicacion, expectativa.ubicacion);
+		}
+	}
+
 }

@@ -11,37 +11,37 @@ using NurBNB.Reservas.Infrastructure.EF.Context;
 
 namespace NurBNB.Reservas.Infrastructure.EF.Repositories
 {
-    [ExcludeFromCodeCoverage]
-    public class ReservaRepository : IReservaRepository
-    {
-        private readonly WriteDbContext _context;
+	[ExcludeFromCodeCoverage]
+	public class ReservaRepository : IReservaRepository
+	{
+		private readonly WriteDbContext _context;
 
-        
-        public ReservaRepository(WriteDbContext context)
-        {
-            _context = context;
-        }
 
-        public ReservaRepository()
-        {
-            
-        }
-        public async Task CreateAsync(Reserva obj)
-        {
-            await _context.AddAsync(obj);
-        }
+		public ReservaRepository(WriteDbContext context)
+		{
+			_context = context;
+		}
 
-        public async Task<Reserva?> FindByIdAsync(Guid id)
-        {
-            return await _context.Reserva.SingleOrDefaultAsync(p => p.Id == id);
-        }
+		public ReservaRepository()
+		{
 
-       
+		}
+		public async Task CreateAsync(Reserva obj)
+		{
+			await _context.AddAsync(obj);
+		}
 
-        public Task UpdateAsync(Reserva reserva)
-        {
-            _context.Reserva.Update(reserva);
-            return Task.CompletedTask;
-        }
-    }
+		public async Task<Reserva?> FindByIdAsync(Guid id)
+		{
+			return await _context.Reserva.SingleOrDefaultAsync(p => p.Id == id);
+		}
+
+
+
+		public Task UpdateAsync(Reserva reserva)
+		{
+			_context.Reserva.Update(reserva);
+			return Task.CompletedTask;
+		}
+	}
 }

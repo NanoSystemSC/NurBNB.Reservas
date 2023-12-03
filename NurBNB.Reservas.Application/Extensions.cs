@@ -11,22 +11,22 @@ using NurBNB.Reservas.Domain.Model.Clientes;
 
 namespace NurBNB.Reservas.Application
 {
-    [ExcludeFromCodeCoverage]
-    public static class Extensions
-    {
-        
-        public static IServiceCollection AddApplication(this IServiceCollection services)
-        {
-            services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
+	[ExcludeFromCodeCoverage]
+	public static class Extensions
+	{
 
-            services.AddSingleton<IHuespedFactory, HuespedFactory>();
-            services.AddSingleton<IPropiedadFactory, PropiedadFactory>();
-            services.AddSingleton<IReservaFactory, ReservaFactory>();
-            services.AddSingleton<ICancelarFactory, CancelarFactory>();
+		public static IServiceCollection AddApplication(this IServiceCollection services)
+		{
+			services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
 
-            //services.AddSingleton<Itipocan>
+			services.AddSingleton<IHuespedFactory, HuespedFactory>();
+			services.AddSingleton<IPropiedadFactory, PropiedadFactory>();
+			services.AddSingleton<IReservaFactory, ReservaFactory>();
+			services.AddSingleton<ICancelarFactory, CancelarFactory>();
 
-            return services;
-        }
-    }
+			//services.AddSingleton<Itipocan>
+			
+			return services;
+		}
+	}
 }

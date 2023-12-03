@@ -8,8 +8,8 @@ using NurBNB.Reservas.Domain.Model.Reservas;
 
 namespace NurBNB.Reservas.Domain.Factories
 {
-    public interface IReservaFactory
-    {
-        Reserva Create(Guid huespedID, Guid propiedadID, DateTime fechaCheckIn, DateTime fechaCheckOut, string motivo);
-    }
+	public interface IReservaFactory
+	{
+		Reserva Create(Guid huespedID, Guid propiedadID, DateTime fechaCheckIn, DateTime fechaCheckOut, string motivo);
+	}
 }

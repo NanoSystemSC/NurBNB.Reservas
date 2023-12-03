@@ -8,27 +8,27 @@ using NurBNB.Reservas.SharedKernel.Core;
 
 namespace NurBNB.Reservas.Domain.Model.Cancelacion
 {
-    public class CancelarReserva : AggregateRoot
-    {
-        public Guid ReservaID { get; private set; }
-        public DateTime FechaCancelacion { get; private set; }
-        //public bool Aplica_Descuento { get; private set; }
-        public bool Aplica_Descuento { get;  set; }
-        public string Motivo { get; private set; }
-        public decimal Porcentaje_Devolucion { get;  set; }
+	public class CancelarReserva : AggregateRoot
+	{
+		public Guid ReservaID { get; private set; }
+		public DateTime FechaCancelacion { get; private set; }
+		//public bool Aplica_Descuento { get; private set; }
+		public bool AplicaDescuento { get; set; }
+		public string Motivo { get; private set; }
+		public decimal PorcentajeDevolucion { get; set; }
 
 
-        public CancelarReserva(Guid reservaID, DateTime fechaCancelacion, bool aplica_Descuento, decimal porcentaje_Devolucion, string motivo)
-        {
-            Id= Guid.NewGuid();
-            ReservaID = reservaID;
-            FechaCancelacion = fechaCancelacion;
-            Aplica_Descuento = aplica_Descuento;
-            Porcentaje_Devolucion = porcentaje_Devolucion;
-            Motivo = motivo;
-        }
+		public CancelarReserva(Guid reservaID, DateTime fechaCancelacion, bool aplicaDescuento, decimal porcentajeDevolucion, string motivo)
+		{
+			Id = Guid.NewGuid();
+			ReservaID = reservaID;
+			FechaCancelacion = fechaCancelacion;
+			AplicaDescuento = aplicaDescuento;
+			PorcentajeDevolucion = porcentajeDevolucion;
+			Motivo = motivo;
+		}
 
-        [ExcludeFromCodeCoverage]
-        private CancelarReserva() { }
-    }
+		[ExcludeFromCodeCoverage]
+		private CancelarReserva() { }
+	}
 }

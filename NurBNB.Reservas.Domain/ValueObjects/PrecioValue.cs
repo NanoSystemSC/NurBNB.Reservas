@@ -8,22 +8,22 @@ using NurBNB.Reservas.SharedKernel.ValueObjects;
 
 namespace NurBNB.Reservas.Domain.ValueObjects
 {
-    public record PrecioValue: ValueObject
-    {
-        public decimal Value { get; init; }
+	public record PrecioValue : ValueObject
+	{
+		public decimal Value { get; init; }
 
-        public PrecioValue(decimal value)
-        {
-            if (value < 0)
-            {
-                throw new ArgumentException("El precio no puede ser negativo");
-            }
+		public PrecioValue(decimal value)
+		{
+			if (value < 0)
+			{
+				throw new ArgumentException("El precio no puede ser negativo");
+			}
 
-            Value = value;
-        }
+			Value = value;
+		}
 
-        public static implicit operator decimal(PrecioValue costo) => costo.Value;
+		public static implicit operator decimal(PrecioValue costo) => costo.Value;
 
-        public static implicit operator PrecioValue(decimal value) => new(value);
-    }
+		public static implicit operator PrecioValue(decimal value) => new(value);
+	}
 }

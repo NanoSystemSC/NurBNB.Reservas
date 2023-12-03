@@ -8,8 +8,8 @@ using NurBNB.Reservas.SharedKernel.Core;
 
 namespace NurBNB.Reservas.Domain.Repositories
 {
-    public interface IHuespedRepository: IRepository<Huesped, Guid>
-    {
-        Task UpdateAsync(Huesped huesped);
-    }
+	public interface IHuespedRepository : IRepository<Huesped, Guid>
+	{
+		Task UpdateAsync(Huesped huesped);
+	}
 }

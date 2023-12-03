@@ -8,12 +8,12 @@ using NurBNB.Reservas.Domain.ValueObjects;
 
 namespace NurBNB.Reservas.Application.UserCases.Propiedad.Command.CrearPropiedad
 {
-    public class CrearPropiedadCommand : IRequest<Guid>
-    {
-        public string Propietario_ID { get;  set; }
-        public string Titulo { get;  set; }
-        public decimal Precio { get;  set; }
-        public string Detalle { get;  set; }
-        public string ubicacion { get;  set; }
-    }
+	public class CrearPropiedadCommand : IRequest<Guid>
+	{
+		public string PropietarioID { get; set; }
+		public string Titulo { get; set; }
+		public decimal Precio { get; set; }
+		public string Detalle { get; set; }
+		public string ubicacion { get; set; }
+	}
 }

@@ -12,7 +12,7 @@ namespace NurBNB.Reservas.Infrastructure.Migrations
 {
     [DbContext(typeof(ReadDbContext))]
     [Migration("20230808194355_ini_cancelar")]
-    partial class ini_cancelar
+    partial class iniCancelar
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

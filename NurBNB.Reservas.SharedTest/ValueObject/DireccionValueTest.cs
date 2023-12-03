@@ -10,48 +10,48 @@ using System.Threading.Tasks;
 
 namespace NurBNB.Reservas.Test.ValueObject
 {
-    public class DireccionValueTest
-    {
-        [Theory]
-        [InlineData("calle","ciudad","pais", "codigoPostal")]
-        [InlineData("calle2", "ciudad2", "pais2", "codigoPostal2")]
-        public void TodosLosValoresdeDireccion(string calle, string ciudad, string pais, string codigo_postal)
-        {
-            //int valorEsperado = 10;
-            DireccionValue valorAverificar = new DireccionValue(calle, ciudad, pais, codigo_postal);
+	public class DireccionValueTest
+	{
+		[Theory]
+		[InlineData("calle", "ciudad", "pais", "codigoPostal")]
+		[InlineData("calle2", "ciudad2", "pais2", "codigoPostal2")]
+		public void TodosLosValoresdeDireccion(string calle, string ciudad, string pais, string codigoPostal)
+		{
+			//int valorEsperado = 10;
+			DireccionValue valorAverificar = new DireccionValue(calle, ciudad, pais, codigoPostal);
 
-            Assert.Equal(calle, valorAverificar.Calle);
-            Assert.Equal(ciudad, valorAverificar.Ciudad);
-            Assert.Equal(pais, valorAverificar.Pais);
-            Assert.Equal(codigo_postal, valorAverificar.Codigo_postal);            
-        }
+			Assert.Equal(calle, valorAverificar.Calle);
+			Assert.Equal(ciudad, valorAverificar.Ciudad);
+			Assert.Equal(pais, valorAverificar.Pais);
+			Assert.Equal(codigoPostal, valorAverificar.CodigoPostal);
+		}
 
-        [Fact]
-        public void CalleVacia()
-        {
-           
-            Assert.Throws<BussinessRuleValidationException>(() => new DireccionValue("", "ciudad", "pais", "codigo_postal"));
-        }
+		[Fact]
+		public void CalleVacia()
+		{
 
-        [Fact]
-        public void CiudadVacia()
-        {
+			Assert.Throws<BussinessRuleValidationException>(() => new DireccionValue("", "ciudad", "pais", "codigo_postal"));
+		}
 
-            Assert.Throws<BussinessRuleValidationException>(() => new DireccionValue("Calle", "   ", "pais", "codigo_postal"));
-        }
+		[Fact]
+		public void CiudadVacia()
+		{
 
-        [Fact]
-        public void PaisVacia()
-        {
+			Assert.Throws<BussinessRuleValidationException>(() => new DireccionValue("Calle", "   ", "pais", "codigo_postal"));
+		}
 
-            Assert.Throws<BussinessRuleValidationException>(() => new DireccionValue("Calle", "ciudadd", "", "codigo_postal"));
-        }
+		[Fact]
+		public void PaisVacia()
+		{
 
-        [Fact]
-        public void CodigoPostalVacia()
-        {
+			Assert.Throws<BussinessRuleValidationException>(() => new DireccionValue("Calle", "ciudadd", "", "codigo_postal"));
+		}
 
-            Assert.Throws<BussinessRuleValidationException>(() => new DireccionValue("Calle", "ciudadd", "Paiss", ""));
-        }
-    }
+		[Fact]
+		public void CodigoPostalVacia()
+		{
+
+			Assert.Throws<BussinessRuleValidationException>(() => new DireccionValue("Calle", "ciudadd", "Paiss", ""));
+		}
+	}
 }

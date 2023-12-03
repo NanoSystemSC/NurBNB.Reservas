@@ -9,26 +9,26 @@ using NurBNB.Reservas.SharedKernel.Core;
 
 namespace NurBNB.Reservas.Domain.Model.Cancelacion
 {
-    public class TipoCancelacion: AggregateRoot
-    {
-        
+	public class TipoCancelacion : AggregateRoot
+	{
 
-        //public Guid  ID_TipoCancelacion { get; set; }
-        public string Descripcion { get; private set; }
-        public int Dia_Ini { get; private set; }
-        public int Dia_Fin { get; private set; }
-        public decimal PorcentajeDevolucion { get; private set; }
 
-        public TipoCancelacion(string descripcion, int dia_Ini, int dia_Fin, decimal porcentajeDevolucion)
-        {
-            Id = Guid.NewGuid();
-            Descripcion = descripcion;
-            Dia_Ini = dia_Ini;
-            Dia_Fin = dia_Fin;
-            PorcentajeDevolucion = porcentajeDevolucion;
-        }
+		//public Guid  ID_TipoCancelacion { get; set; }
+		public string Descripcion { get; private set; }
+		public int DiaIni { get; private set; }
+		public int DiaFin { get; private set; }
+		public decimal PorcentajeDevolucion { get; private set; }
 
-        [ExcludeFromCodeCoverage]
-        private TipoCancelacion() { }
-    }
+		public TipoCancelacion(string descripcion, int diaIni, int diaFin, decimal porcentajeDevolucion)
+		{
+			Id = Guid.NewGuid();
+			Descripcion = descripcion;
+			DiaIni = diaIni;
+			DiaFin = diaFin;
+			PorcentajeDevolucion = porcentajeDevolucion;
+		}
+
+		[ExcludeFromCodeCoverage]
+		private TipoCancelacion() { }
+	}
 }

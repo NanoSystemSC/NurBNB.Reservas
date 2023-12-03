@@ -10,9 +10,9 @@ using NurBNB.Reservas.Domain.Model.Estados;
 
 namespace NurBNB.Reservas.Application.UserCases.Propiedad.Query.GetPropiedadDisponiblesList
 {
-    [ExcludeFromCodeCoverage]
-    public class GetPropiedadDisponiblesQuery : IRequest<ICollection<PropiedadDto>>
-    {
-        public TipoEstadoReserva estadoReserva { get; set; }
-    }
+	[ExcludeFromCodeCoverage]
+	public class GetPropiedadDisponiblesQuery : IRequest<ICollection<PropiedadDto>>
+	{
+		public TipoEstadoReserva estadoReserva { get; set; }
+	}
 }

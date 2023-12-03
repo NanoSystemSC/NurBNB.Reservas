@@ -13,48 +13,48 @@ using NurBNB.Reservas.SharedKernel.Core;
 
 namespace NurBNB.Reservas.Infrastructure.EF.Context
 {
-    [ExcludeFromCodeCoverage]
-    public class WriteDbContext: DbContext
-    {
-        public virtual DbSet<Huesped> Huesped { set; get; }
-        public virtual DbSet<Propiedad> Propiedad { set; get; }
+	[ExcludeFromCodeCoverage]
+	public class WriteDbContext : DbContext
+	{
+		public virtual DbSet<Huesped> Huesped { set; get; }
+		public virtual DbSet<Propiedad> Propiedad { set; get; }
 
-        public virtual DbSet<Reserva> Reserva { set; get; }
+		public virtual DbSet<Reserva> Reserva { set; get; }
 
-        public virtual DbSet<CancelarReserva> CancelarReservas { set; get; }
+		public virtual DbSet<CancelarReserva> CancelarReservas { set; get; }
 
-        public virtual DbSet<TipoCancelacion> TipoCancelacion { set; get; }
+		public virtual DbSet<TipoCancelacion> TipoCancelacion { set; get; }
 
-        public WriteDbContext(DbContextOptions<WriteDbContext> options) : base(options)
-        {
-        }
+		public WriteDbContext(DbContextOptions<WriteDbContext> options) : base(options)
+		{
+		}
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            base.OnModelCreating(modelBuilder);
+		protected override void OnModelCreating(ModelBuilder modelBuilder)
+		{
+			base.OnModelCreating(modelBuilder);
 
-            var huespedConfig = new HuespedConfig();
-            modelBuilder.ApplyConfiguration(huespedConfig);
+			var huespedConfig = new HuespedConfig();
+			modelBuilder.ApplyConfiguration(huespedConfig);
 
-            var propiedadConfig = new PropiedadConfig();
-            modelBuilder.ApplyConfiguration(propiedadConfig);
+			var propiedadConfig = new PropiedadConfig();
+			modelBuilder.ApplyConfiguration(propiedadConfig);
 
-            var reservaConfig = new ReservaConfig();
-            modelBuilder.ApplyConfiguration(reservaConfig);
+			var reservaConfig = new ReservaConfig();
+			modelBuilder.ApplyConfiguration(reservaConfig);
 
-            var cancelarConfig = new CancelarConfig();
-            modelBuilder.ApplyConfiguration(cancelarConfig);
+			var cancelarConfig = new CancelarConfig();
+			modelBuilder.ApplyConfiguration(cancelarConfig);
 
-            var TipoCancelacionConfig = new TipoCancelacionConfig();
-            modelBuilder.ApplyConfiguration(TipoCancelacionConfig);
+			var TipoCancelacionConfig = new TipoCancelacionConfig();
+			modelBuilder.ApplyConfiguration(TipoCancelacionConfig);
 
-            //var transaccionConfig = new TransaccionConfig();
-            //modelBuilder.ApplyConfiguration<Transaccion>(transaccionConfig);
-            //modelBuilder.ApplyConfiguration<TransaccionItem>(transaccionConfig);
+			//var transaccionConfig = new TransaccionConfig();
+			//modelBuilder.ApplyConfiguration<Transaccion>(transaccionConfig);
+			//modelBuilder.ApplyConfiguration<TransaccionItem>(transaccionConfig);
 
 
-            modelBuilder.Ignore<DomainEvent>();
-            //modelBuilder.Ignore<TransaccionConfirmada>();
-        }
-    }
+			modelBuilder.Ignore<DomainEvent>();
+			//modelBuilder.Ignore<TransaccionConfirmada>();
+		}
+	}
 }
