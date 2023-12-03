@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace NurBNB.Reservas.Infrastructure.MassTransit
 {
-    internal class RabbitMQSettings
-    {
-        public string Host { get; set; }
-    }
+	internal class RabbitMQSettings
+	{
+		public string Host { get; set; }
+	}
 }

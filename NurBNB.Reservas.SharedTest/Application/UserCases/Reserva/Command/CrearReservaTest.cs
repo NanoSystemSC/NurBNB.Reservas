@@ -16,89 +16,89 @@ using System.Threading.Tasks;
 
 namespace NurBNB.Reservas.SharedTest.Application.UserCases.Reserva.Command
 {
-    public class CrearReservaTest
-    {
-        Mock<NurBNB.Reservas.Domain.Repositories.IReservaRepository> _reservaRepository;
-        Mock<IUnitOfWork> _unitOfWork;
-        Mock<NurBNB.Reservas.Domain.Factories.IReservaFactory> _reservaFactory;
+	public class CrearReservaTest
+	{
+		Mock<NurBNB.Reservas.Domain.Repositories.IReservaRepository> _reservaRepository;
+		Mock<IUnitOfWork> _unitOfWork;
+		Mock<NurBNB.Reservas.Domain.Factories.IReservaFactory> _reservaFactory;
 
-        public CrearReservaTest()
-        {
-            _reservaRepository = new Mock<NurBNB.Reservas.Domain.Repositories.IReservaRepository>();
-            _unitOfWork = new Mock<IUnitOfWork>();
-            _reservaFactory = new Mock<NurBNB.Reservas.Domain.Factories.IReservaFactory>();
+		public CrearReservaTest()
+		{
+			_reservaRepository = new Mock<NurBNB.Reservas.Domain.Repositories.IReservaRepository>();
+			_unitOfWork = new Mock<IUnitOfWork>();
+			_reservaFactory = new Mock<NurBNB.Reservas.Domain.Factories.IReservaFactory>();
 
-            
-        }
-        [Fact]
-        public async void CrearReservaDePropiedadTest()
-        {
-            // Arrange
-           
-            var reserva = new CrearReservaCommand();
-            reserva.HuespedID =Guid.NewGuid();
-            reserva.PropiedadID = Guid.NewGuid(); 
-            reserva.FechaCheckIn = DateTime.Now;
-            reserva.FechaCheckOut = DateTime.Now.AddDays(3);
-            reserva.Motivo = "Viaje de Prueba";
 
-            
-            // Act
-            var handler = new CrearReservaHandler(_reservaFactory.Object, _reservaRepository.Object, _unitOfWork.Object);
+		}
+		[Fact]
+		public async void CrearReservaDePropiedadTest()
+		{
+			// Arrange
 
-            var tcs = new CancellationTokenSource(1000);
+			var reserva = new CrearReservaCommand();
+			reserva.HuespedID = Guid.NewGuid();
+			reserva.PropiedadID = Guid.NewGuid();
+			reserva.FechaCheckIn = DateTime.Now;
+			reserva.FechaCheckOut = DateTime.Now.AddDays(3);
+			reserva.Motivo = "Viaje de Prueba";
 
-            var esperado =  await handler.Handle(reserva, tcs.Token);
 
-            // Assert
-            Assert.True(esperado.Equals(esperado));
-            
-        }
+			// Act
+			var handler = new CrearReservaHandler(_reservaFactory.Object, _reservaRepository.Object, _unitOfWork.Object);
 
-        [Fact]
-        public async void ValidarFechasdeReservaTest()
-        {
-            // Arrange
-            
-            var reserva = new CrearReservaCommand();
-            reserva.HuespedID = Guid.NewGuid();
-            reserva.PropiedadID = Guid.NewGuid();
-            reserva.FechaCheckIn = DateTime.Now.AddDays(3); 
-            reserva.FechaCheckOut = DateTime.Now;
-            reserva.Motivo = "Viaje de Prueba";
+			var tcs = new CancellationTokenSource(1000);
 
-            // Act
-            var handler = new CrearReservaHandler(_reservaFactory.Object, _reservaRepository.Object, _unitOfWork.Object);
+			var esperado = await handler.Handle(reserva, tcs.Token);
 
-            var tcs = new CancellationTokenSource(1000);
+			// Assert
+			Assert.True(esperado.Equals(esperado));
 
-           
-            // Assert
-            
-            Assert.ThrowsAsync<ArgumentException>(() => handler.Handle(reserva, tcs.Token));
+		}
 
-        }
+		[Fact]
+		public async void ValidarFechasdeReservaTest()
+		{
+			// Arrange
 
-        [Fact]
-        public async void CrearReservaSinMotivo()
-        {
-            // Arrange
+			var reserva = new CrearReservaCommand();
+			reserva.HuespedID = Guid.NewGuid();
+			reserva.PropiedadID = Guid.NewGuid();
+			reserva.FechaCheckIn = DateTime.Now.AddDays(3);
+			reserva.FechaCheckOut = DateTime.Now;
+			reserva.Motivo = "Viaje de Prueba";
 
-            var reserva = new CrearReservaCommand();
-            reserva.HuespedID = Guid.NewGuid();
-            reserva.PropiedadID = Guid.NewGuid();
-            reserva.FechaCheckIn = DateTime.Now;
-            reserva.FechaCheckOut = DateTime.Now.AddDays(3);
-            reserva.Motivo = "";
+			// Act
+			var handler = new CrearReservaHandler(_reservaFactory.Object, _reservaRepository.Object, _unitOfWork.Object);
 
-            // Act
-            var handler = new CrearReservaHandler(_reservaFactory.Object, _reservaRepository.Object, _unitOfWork.Object);
+			var tcs = new CancellationTokenSource(1000);
 
-            var tcs = new CancellationTokenSource(1000);
 
-            // Assert
-            Assert.ThrowsAsync<ArgumentException>(() => handler.Handle(reserva, tcs.Token));
+			// Assert
 
-        }
-    }
+			Assert.ThrowsAsync<ArgumentException>(() => handler.Handle(reserva, tcs.Token));
+
+		}
+
+		[Fact]
+		public async void CrearReservaSinMotivo()
+		{
+			// Arrange
+
+			var reserva = new CrearReservaCommand();
+			reserva.HuespedID = Guid.NewGuid();
+			reserva.PropiedadID = Guid.NewGuid();
+			reserva.FechaCheckIn = DateTime.Now;
+			reserva.FechaCheckOut = DateTime.Now.AddDays(3);
+			reserva.Motivo = "";
+
+			// Act
+			var handler = new CrearReservaHandler(_reservaFactory.Object, _reservaRepository.Object, _unitOfWork.Object);
+
+			var tcs = new CancellationTokenSource(1000);
+
+			// Assert
+			Assert.ThrowsAsync<ArgumentException>(() => handler.Handle(reserva, tcs.Token));
+
+		}
+	}
 }

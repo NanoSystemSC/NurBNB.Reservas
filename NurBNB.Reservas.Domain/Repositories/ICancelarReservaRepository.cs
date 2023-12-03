@@ -9,8 +9,8 @@ using NurBNB.Reservas.SharedKernel.Core;
 
 namespace NurBNB.Reservas.Domain.Repositories
 {
-    public interface ICancelarReservaRepository : IRepository<CancelarReserva, Guid>
-    {
-        Task UpdateAsync(CancelarReserva cancelar);
-    }
+	public interface ICancelarReservaRepository : IRepository<CancelarReserva, Guid>
+	{
+		Task UpdateAsync(CancelarReserva cancelar);
+	}
 }

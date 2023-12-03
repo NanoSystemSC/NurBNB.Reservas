@@ -2,7 +2,7 @@
 
 public interface IBussinessRule
 {
-    bool IsValid();
+	bool IsValid();
 
-    string Message { get; }
+	string Message { get; }
 }

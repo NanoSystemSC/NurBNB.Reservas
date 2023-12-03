@@ -12,7 +12,7 @@ namespace NurBNB.Reservas.Infrastructure.Migrations
 {
     [DbContext(typeof(ReadDbContext))]
     [Migration("20230805211321_struct_Reserva")]
-    partial class struct_Reserva
+    partial class structReserva
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

@@ -7,19 +7,19 @@ using System.Threading.Tasks;
 
 namespace NurBNB.Reservas.Test.Rules
 {
-    public class NotNegativeRuleTest
-    {
-        [Theory]
-        [InlineData(-5, false)]
-        [InlineData(6, true)]
-        public void ObejtoNegativo(decimal valorEsperado, bool resultadoEsperado)
-        {
-            NotNegativeRule rule = new NotNegativeRule(valorEsperado);
+	public class NotNegativeRuleTest
+	{
+		[Theory]
+		[InlineData(-5, false)]
+		[InlineData(6, true)]
+		public void ObejtoNegativo(decimal valorEsperado, bool resultadoEsperado)
+		{
+			NotNegativeRule rule = new NotNegativeRule(valorEsperado);
 
-            bool esValido = rule.IsValid();
+			bool esValido = rule.IsValid();
 
-            Assert.Equal(resultadoEsperado, esValido);
+			Assert.Equal(resultadoEsperado, esValido);
 
-        }
-    }
+		}
+	}
 }

@@ -9,8 +9,8 @@ using NurBNB.Reservas.SharedKernel.Core;
 
 namespace NurBNB.Reservas.Domain.Repositories
 {
-    public interface IPropiedadRepository: IRepository<Propiedad, Guid>
-    {
-        Task UpdateAsync(Propiedad propiedad);
-    }
+	public interface IPropiedadRepository : IRepository<Propiedad, Guid>
+	{
+		Task UpdateAsync(Propiedad propiedad);
+	}
 }

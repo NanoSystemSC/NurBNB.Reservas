@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace NurBNB.Reservas.Test.Application.UserCases.Propiedad.Query
 {
-    public class GetPropiedadDisponiblesQueryTest
-    {
-        public TipoEstadoReserva estadoReserva { get; set; }
+	public class GetPropiedadDisponiblesQueryTest
+	{
+		public TipoEstadoReserva estadoReserva { get; set; }
 
 
-        
 
-    }
+
+	}
 }

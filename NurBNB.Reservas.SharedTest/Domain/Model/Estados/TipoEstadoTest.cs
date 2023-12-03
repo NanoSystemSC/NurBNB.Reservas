@@ -7,15 +7,15 @@ using System.Threading.Tasks;
 
 namespace NurBNB.Reservas.Test.Domain.Model.Estados
 {
-    public class TipoEstadoTest
-    {
-        [Fact]
-        public void TipoEstadosTest()
-        {
+	public class TipoEstadoTest
+	{
+		[Fact]
+		public void TipoEstadosTest()
+		{
 
-            TipoEstadoReserva tipoEstado = TipoEstadoReserva.Reservado;
+			TipoEstadoReserva tipoEstado = TipoEstadoReserva.Reservado;
 
-            Assert.Equal(tipoEstado, TipoEstadoReserva.Reservado);
-        }
-    }
+			Assert.Equal(TipoEstadoReserva.Reservado, tipoEstado);
+		}
+	}
 }
