@@ -15,6 +15,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NurBNB.Reservas.WebAPI", "N
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{080EC845-8A69-4987-920D-CFFCB179050A}"
 	ProjectSection(SolutionItems) = preProject
+		..\..\Proyectos\BancoSol\Track-Financial\BackEnd\.editorconfig = ..\..\Proyectos\BancoSol\Track-Financial\BackEnd\.editorconfig
 		.gitignore = .gitignore
 		Diagrama de Dominio.pdf = Diagrama de Dominio.pdf
 		README.md = README.md
@@ -27,7 +28,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Pruebas PostMan", "Pruebas 
 		C:\Users\Fernando S\Desktop\NurBNB.postman_collection.json = C:\Users\Fernando S\Desktop\NurBNB.postman_collection.json
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NurBNB.Reservas.IntegrationEvents", "NurBNB.Reservas.IntegrationEvents\NurBNB.Reservas.IntegrationEvents.csproj", "{B032E210-30AA-4E56-B117-70A5E840FE74}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NurBNB.Reservas.IntegrationEvents", "NurBNB.Reservas.IntegrationEvents\NurBNB.Reservas.IntegrationEvents.csproj", "{B032E210-30AA-4E56-B117-70A5E840FE74}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
