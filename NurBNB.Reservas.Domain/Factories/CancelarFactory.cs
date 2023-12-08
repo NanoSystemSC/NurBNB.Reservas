@@ -7,11 +7,11 @@ using NurBNB.Reservas.Domain.Model.Cancelacion;
 
 namespace NurBNB.Reservas.Domain.Factories
 {
-	public class CancelarFactory : ICancelarFactory
-	{
-		public CancelarReserva Create(Guid reservaID, DateTime fechaCancelacion, bool aplica_Descuento, decimal porcentaje_Devolucion, string motivo)
-		{
-			return new CancelarReserva(reservaID, fechaCancelacion, aplica_Descuento, porcentaje_Devolucion, motivo);
-		}
-	}
+    public class CancelarFactory : ICancelarFactory
+    {
+	   public CancelarReserva Create(Guid reservaID, DateTime fechaCancelacion, bool aplica_Descuento, decimal porcentaje_Devolucion, string motivo)
+	   {
+		  return new CancelarReserva(reservaID, fechaCancelacion, aplica_Descuento, porcentaje_Devolucion, motivo);
+	   }
+    }
 }

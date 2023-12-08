@@ -9,26 +9,26 @@ using System.Threading.Tasks;
 
 namespace NurBNB.Reservas.Test.Domain.Model.Cancelacion
 {
-	public class CancelarTest
-	{
-		[Fact]
-		public void CrearCancelacionTest()
-		{
+    public class CancelarTest
+    {
+	   [Fact]
+	   public void CrearCancelacionTest()
+	   {
 
-			Guid ReservaID = Guid.NewGuid();
-			DateTime FechaCancelacion = DateTime.Now;
-			bool Aplica_Descuento = false;
-			string Motivo = "Motivooo";
-			decimal Porcentaje_Devolucion = 0;
+		  Guid ReservaID = Guid.NewGuid();
+		  DateTime FechaCancelacion = DateTime.Now;
+		  bool Aplica_Descuento = false;
+		  string Motivo = "Motivooo";
+		  decimal Porcentaje_Devolucion = 0;
 
-			CancelarReserva cancelar = new CancelarReserva(ReservaID, FechaCancelacion, Aplica_Descuento, Porcentaje_Devolucion, Motivo);
+		  CancelarReserva cancelar = new CancelarReserva(ReservaID, FechaCancelacion, Aplica_Descuento, Porcentaje_Devolucion, Motivo);
 
-			Assert.Equal(ReservaID, cancelar.ReservaID);
-			Assert.Equal(FechaCancelacion, cancelar.FechaCancelacion);
-			Assert.Equal(Aplica_Descuento, cancelar.AplicaDescuento);
-			Assert.Equal(Motivo, cancelar.Motivo);
-			Assert.Equal(Porcentaje_Devolucion, cancelar.PorcentajeDevolucion);
+		  Assert.Equal(ReservaID, cancelar.ReservaID);
+		  Assert.Equal(FechaCancelacion, cancelar.FechaCancelacion);
+		  Assert.Equal(Aplica_Descuento, cancelar.AplicaDescuento);
+		  Assert.Equal(Motivo, cancelar.Motivo);
+		  Assert.Equal(Porcentaje_Devolucion, cancelar.PorcentajeDevolucion);
 
-		}
-	}
+	   }
+    }
 }

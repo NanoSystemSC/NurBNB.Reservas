@@ -7,21 +7,21 @@ using System.Threading.Tasks;
 
 namespace NurBNB.Reservas.Test.Domain.Model.Estados
 {
-	public class EstadoTest
-	{
+    public class EstadoTest
+    {
 
-		[Fact]
-		public void EstadosTest()
-		{
-			Guid ID_Estado = Guid.NewGuid();
-			int TipoEstado = 3;
-			string Descripcion = "Estado 1";
+	   [Fact]
+	   public void EstadosTest()
+	   {
+		  Guid ID_Estado = Guid.NewGuid();
+		  int TipoEstado = 3;
+		  string Descripcion = "Estado 1";
 
-			Estado estado = new Estado(ID_Estado, TipoEstado, Descripcion);
+		  Estado estado = new Estado(ID_Estado, TipoEstado, Descripcion);
 
-			Assert.Equal(ID_Estado, estado.IDEstado);
-			Assert.Equal(TipoEstado, estado.TipoEstado);
-			Assert.Equal(Descripcion, estado.Descripcion);
-		}
-	}
+		  Assert.Equal(ID_Estado, estado.IDEstado);
+		  Assert.Equal(TipoEstado, estado.TipoEstado);
+		  Assert.Equal(Descripcion, estado.Descripcion);
+	   }
+    }
 }

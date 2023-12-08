@@ -8,18 +8,18 @@ using System.Threading.Tasks;
 
 namespace NurBNB.Reservas.Infrastructure.MassTransit
 {
-	internal class MassTransitBusService : IBusService
-	{
-		private readonly IPublishEndpoint _publishEndpoint;
+    internal class MassTransitBusService : IBusService
+    {
+	   private readonly IPublishEndpoint _publishEndpoint;
 
-		public MassTransitBusService(IPublishEndpoint publishEndpoint)
-		{
-			_publishEndpoint = publishEndpoint;
-		}
+	   public MassTransitBusService(IPublishEndpoint publishEndpoint)
+	   {
+		  _publishEndpoint = publishEndpoint;
+	   }
 
-		public async Task PublishAsync(object message)
-		{
-			await _publishEndpoint.Publish(message);
-		}
-	}
+	   public async Task PublishAsync(object message)
+	   {
+		  await _publishEndpoint.Publish(message);
+	   }
+    }
 }

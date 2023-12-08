@@ -11,31 +11,31 @@ using NurBNB.Reservas.SharedKernel.Core;
 
 namespace NurBNB.Reservas.Application.UserCases.CancelarReserva.Command.CrearReserva
 {
-	public class CrearCancelacionHandler : IRequestHandler<CrearCancelacionCommand, Guid>
-	{
-		private readonly ICancelarFactory _cancelarFactory;
-		private readonly ICancelarReservaRepository _cancelarRepository;
-		private readonly IUnitOfWork _unitOfWork;
+    public class CrearCancelacionHandler : IRequestHandler<CrearCancelacionCommand, Guid>
+    {
+	   private readonly ICancelarFactory _cancelarFactory;
+	   private readonly ICancelarReservaRepository _cancelarRepository;
+	   private readonly IUnitOfWork _unitOfWork;
 
-		public CrearCancelacionHandler(ICancelarFactory cancelarFactory, ICancelarReservaRepository cancelarRepository,
-			IUnitOfWork unitOfWork)
-		{
-			_cancelarFactory = cancelarFactory;
-			_cancelarRepository = cancelarRepository;
-			_unitOfWork = unitOfWork;
-		}
+	   public CrearCancelacionHandler(ICancelarFactory cancelarFactory, ICancelarReservaRepository cancelarRepository,
+		   IUnitOfWork unitOfWork)
+	   {
+		  _cancelarFactory = cancelarFactory;
+		  _cancelarRepository = cancelarRepository;
+		  _unitOfWork = unitOfWork;
+	   }
 
-		public async Task<Guid> Handle(CrearCancelacionCommand request, CancellationToken cancellationToken)
-		{
-			if (string.IsNullOrEmpty(request.Motivo))
-				throw new ArgumentException("Debe ingresar el Motivo por el cual quiere realizar la cancelacion");
+	   public async Task<Guid> Handle(CrearCancelacionCommand request, CancellationToken cancellationToken)
+	   {
+		  if (string.IsNullOrEmpty(request.Motivo))
+			 throw new ArgumentException("Debe ingresar el Motivo por el cual quiere realizar la cancelacion");
 
-			var cancelacionCreada = _cancelarFactory.Create(request.ReservaID, DateTime.Now, false, 0, request.Motivo);
+		  var cancelacionCreada = _cancelarFactory.Create(request.ReservaID, DateTime.Now, false, 0, request.Motivo);
 
-			await _cancelarRepository.CreateAsync(cancelacionCreada);
-			await _unitOfWork.Commit();
+		  await _cancelarRepository.CreateAsync(cancelacionCreada);
+		  await _unitOfWork.Commit();
 
-			return (cancelacionCreada != null ? cancelacionCreada.Id : Guid.NewGuid());
-		}
-	}
+		  return (cancelacionCreada != null ? cancelacionCreada.Id : Guid.NewGuid());
+	   }
+    }
 }

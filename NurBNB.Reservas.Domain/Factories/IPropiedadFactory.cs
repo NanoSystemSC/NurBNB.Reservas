@@ -7,8 +7,8 @@ using NurBNB.Reservas.Domain.Model.Reservas;
 
 namespace NurBNB.Reservas.Domain.Factories
 {
-	public interface IPropiedadFactory
-	{
-		Propiedad Create(string propietarioID, string titulo, decimal precio, string detalle, string ubicacion);
-	}
+    public interface IPropiedadFactory
+    {
+	   Propiedad Create(string propietarioID, string titulo, decimal precio, string detalle, string ubicacion);
+    }
 }
