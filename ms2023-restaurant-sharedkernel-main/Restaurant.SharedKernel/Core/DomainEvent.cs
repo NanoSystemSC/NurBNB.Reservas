@@ -10,7 +10,7 @@ public abstract record DomainEvent
 
     public bool Consumed { get; set; }
 
-    protected DomainEvent(DateTime occuredOn)
+    protected DomainEvent(DateTime occuredOn)   
     {
 	   OccuredOn = occuredOn;
 
