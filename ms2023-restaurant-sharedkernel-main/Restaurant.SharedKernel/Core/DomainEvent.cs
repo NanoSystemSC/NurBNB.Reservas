@@ -3,14 +3,14 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace NurBNB.Reservas.SharedKernel.Core;
 [ExcludeFromCodeCoverage]
-public abstract record DomainEvent
+public abstract record DomainEvent        
 {
     public DateTime OccuredOn { get; }   
     public Guid Id { get; }
 
     public bool Consumed { get; set; }
 
-    protected DomainEvent(DateTime occuredOn)
+    protected DomainEvent(DateTime occuredOn)   
     {
 	   OccuredOn = occuredOn;
 
