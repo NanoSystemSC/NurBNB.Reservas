@@ -12,49 +12,49 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace NurBNB.Reservas.Test
 {
-	[ExcludeFromCodeCoverage]
-	public abstract class BaseEfRepoTestFixture
-	{
-		//protected AppDbContext _dbContext;
-		protected WriteDbContext _dbContext;
+    [ExcludeFromCodeCoverage]
+    public abstract class BaseEfRepoTestFixture
+    {
+	   //protected AppDbContext _dbContext;
+	   protected WriteDbContext _dbContext;
 
-		protected BaseEfRepoTestFixture()
-		{
-			var options = CreateNewContextOptions();
-			//var mockEventDispatcher = new Mock<IDomainEventDispatcher>();
+	   protected BaseEfRepoTestFixture()
+	   {
+		  var options = CreateNewContextOptions();
+		  //var mockEventDispatcher = new Mock<IDomainEventDispatcher>();
 
-			//_dbContext = new AppDbContext(options, mockEventDispatcher.Object);
+		  //_dbContext = new AppDbContext(options, mockEventDispatcher.Object);
 
-			_dbContext = new WriteDbContext(options);
-		}
+		  _dbContext = new WriteDbContext(options);
+	   }
 
-		protected static DbContextOptions<WriteDbContext> CreateNewContextOptions()
-		{
-			// Create a fresh service provider, and therefore a fresh
-			// InMemory database instance.
-			var serviceProvider = new ServiceCollection()
-				//.AddEntityFrameworkInMemoryDatabase()
-				.BuildServiceProvider();
+	   protected static DbContextOptions<WriteDbContext> CreateNewContextOptions()
+	   {
+		  // Create a fresh service provider, and therefore a fresh
+		  // InMemory database instance.
+		  var serviceProvider = new ServiceCollection()
+			  //.AddEntityFrameworkInMemoryDatabase()
+			  .BuildServiceProvider();
 
-			// Create a new options instance telling the context to use an
-			// InMemory database and the new service provider.
-			var builder = new DbContextOptionsBuilder<WriteDbContext>();
+		  // Create a new options instance telling the context to use an
+		  // InMemory database and the new service provider.
+		  var builder = new DbContextOptionsBuilder<WriteDbContext>();
 
-			builder.UseInternalServiceProvider(serviceProvider);
-			//builder.UseInMemoryDatabase("cleanarchitecture")
-			//       .UseInternalServiceProvider(serviceProvider);
+		  builder.UseInternalServiceProvider(serviceProvider);
+		  //builder.UseInMemoryDatabase("cleanarchitecture")
+		  //       .UseInternalServiceProvider(serviceProvider);
 
-			return builder.Options;
-		}
+		  return builder.Options;
+	   }
 
-		//protected EfRepository<Project> GetRepository()
-		//{
-		//    return new EfRepository<Project>(_dbContext);
-		//}
+	   //protected EfRepository<Project> GetRepository()
+	   //{
+	   //    return new EfRepository<Project>(_dbContext);
+	   //}
 
-		//public EfRepository<T> GetRepositoryGeneric<T>() where T : class, IAggregateRoot
-		//{
-		//    return new EfRepository<T>(_dbContext);
-		//}
-	}
+	   //public EfRepository<T> GetRepositoryGeneric<T>() where T : class, IAggregateRoot
+	   //{
+	   //    return new EfRepository<T>(_dbContext);
+	   //}
+    }
 }

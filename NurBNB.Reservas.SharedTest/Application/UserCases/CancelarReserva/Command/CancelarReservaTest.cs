@@ -15,58 +15,58 @@ using System.Threading.Tasks;
 namespace NurBNB.Reservas.Test.Application.UserCases.CancelarReserva.Command
 {
 
-	public class CancelarReservaTest
-	{
-		Mock<ICancelarReservaRepository> _cancelarReservaRepository;
-		Mock<IUnitOfWork> _unitOfWork;
-		Mock<ICancelarFactory> _cancelarReservaFactory;
+    public class CancelarReservaTest
+    {
+	   Mock<ICancelarReservaRepository> _cancelarReservaRepository;
+	   Mock<IUnitOfWork> _unitOfWork;
+	   Mock<ICancelarFactory> _cancelarReservaFactory;
 
-		public CancelarReservaTest()
-		{
-			_cancelarReservaRepository = new Mock<ICancelarReservaRepository>();
-			_cancelarReservaFactory = new Mock<ICancelarFactory>();
-			_unitOfWork = new Mock<IUnitOfWork>();
-		}
+	   public CancelarReservaTest()
+	   {
+		  _cancelarReservaRepository = new Mock<ICancelarReservaRepository>();
+		  _cancelarReservaFactory = new Mock<ICancelarFactory>();
+		  _unitOfWork = new Mock<IUnitOfWork>();
+	   }
 
-		[Fact]
-		public async void CancelarReservaAlojamientoTest()
-		{
-			// Arrange
+	   [Fact]
+	   public async void CancelarReservaAlojamientoTest()
+	   {
+		  // Arrange
 
-			var cancelacion = new CrearCancelacionCommand()
-			{
-				ReservaID = Guid.NewGuid(),
-				Motivo = "Motivo de Prueba"
-			};
+		  var cancelacion = new CrearCancelacionCommand()
+		  {
+			 ReservaID = Guid.NewGuid(),
+			 Motivo = "Motivo de Prueba"
+		  };
 
-			// Act
-			var handler = new CrearCancelacionHandler(_cancelarReservaFactory.Object, _cancelarReservaRepository.Object, _unitOfWork.Object);
-			var respuestaEsperada = await handler.Handle(cancelacion, new CancellationTokenSource(1000).Token);
+		  // Act
+		  var handler = new CrearCancelacionHandler(_cancelarReservaFactory.Object, _cancelarReservaRepository.Object, _unitOfWork.Object);
+		  var respuestaEsperada = await handler.Handle(cancelacion, new CancellationTokenSource(1000).Token);
 
-			// Assert
-			Assert.True(respuestaEsperada.Equals(respuestaEsperada));
-		}
+		  // Assert
+		  Assert.True(respuestaEsperada.Equals(respuestaEsperada));
+	   }
 
-		[Fact]
-		public async void CancelarReservaSinMotivoTest()
-		{
-			// Arrange
+	   [Fact]
+	   public async void CancelarReservaSinMotivoTest()
+	   {
+		  // Arrange
 
-			var cancelacion = new CrearCancelacionCommand()
-			{
-				ReservaID = Guid.NewGuid(),
-				Motivo = ""
-			};
-
-
-			// Act
-			var handler = new CrearCancelacionHandler(_cancelarReservaFactory.Object, _cancelarReservaRepository.Object, _unitOfWork.Object);
+		  var cancelacion = new CrearCancelacionCommand()
+		  {
+			 ReservaID = Guid.NewGuid(),
+			 Motivo = ""
+		  };
 
 
+		  // Act
+		  var handler = new CrearCancelacionHandler(_cancelarReservaFactory.Object, _cancelarReservaRepository.Object, _unitOfWork.Object);
 
-			// Assert
-			Assert.ThrowsAsync<ArgumentException>(() => handler.Handle(cancelacion, new CancellationTokenSource(1000).Token));
 
-		}
-	}
+
+		  // Assert
+		  Assert.ThrowsAsync<ArgumentException>(() => handler.Handle(cancelacion, new CancellationTokenSource(1000).Token));
+
+	   }
+    }
 }

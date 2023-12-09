@@ -10,29 +10,29 @@ using NurBNB.Reservas.Infrastructure.EF.ReadModel;
 
 namespace NurBNB.Reservas.Infrastructure.EF.Context
 {
-	[ExcludeFromCodeCoverage]
-	internal class ReadDbContext : DbContext
-	{
+    [ExcludeFromCodeCoverage]
+    internal class ReadDbContext : DbContext
+    {
 
 
-		public virtual DbSet<HuespedReadModel> Huesped { get; set; }
+	   public virtual DbSet<HuespedReadModel> Huesped { get; set; }
 
-		public virtual DbSet<PropiedadReadModel> Propiedad { get; set; }
+	   public virtual DbSet<PropiedadReadModel> Propiedad { get; set; }
 
-		public virtual DbSet<ReservaReadModel> Reserva { get; set; }
+	   public virtual DbSet<ReservaReadModel> Reserva { get; set; }
 
-		public virtual DbSet<CancelarReadModel> CancelarReserva { get; set; }
+	   public virtual DbSet<CancelarReadModel> CancelarReserva { get; set; }
 
-		public virtual DbSet<TipoCancelacionReadModel> TipoCancelacion { get; set; }
+	   public virtual DbSet<TipoCancelacionReadModel> TipoCancelacion { get; set; }
 
 
-		public ReadDbContext(DbContextOptions<ReadDbContext> options) : base(options)
-		{
-		}
+	   public ReadDbContext(DbContextOptions<ReadDbContext> options) : base(options)
+	   {
+	   }
 
-		protected override void OnModelCreating(ModelBuilder modelBuilder)
-		{
-			base.OnModelCreating(modelBuilder);
-		}
-	}
+	   protected override void OnModelCreating(ModelBuilder modelBuilder)
+	   {
+		  base.OnModelCreating(modelBuilder);
+	   }
+    }
 }

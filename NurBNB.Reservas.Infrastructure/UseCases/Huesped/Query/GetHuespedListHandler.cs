@@ -13,40 +13,40 @@ using NurBNB.Reservas.Infrastructure.EF.ReadModel;
 
 namespace NurBNB.Reservas.Infrastructure.UseCases.Huesped.Query
 {
-	[ExcludeFromCodeCoverage]
-	internal class GetHuespedListHandler : IRequestHandler<GetHuespedListQuery, ICollection<HuespedDto>>
-	{
-		private readonly DbSet<HuespedReadModel> _huespedes;
+    [ExcludeFromCodeCoverage]
+    internal class GetHuespedListHandler : IRequestHandler<GetHuespedListQuery, ICollection<HuespedDto>>
+    {
+	   private readonly DbSet<HuespedReadModel> _huespedes;
 
-		public GetHuespedListHandler(ReadDbContext dbContext)
-		{
-			_huespedes = dbContext.Huesped;
-		}
+	   public GetHuespedListHandler(ReadDbContext dbContext)
+	   {
+		  _huespedes = dbContext.Huesped;
+	   }
 
-		public async Task<ICollection<HuespedDto>> Handle(GetHuespedListQuery request, CancellationToken cancellationToken)
-		{
-			var query = _huespedes.AsNoTracking();
+	   public async Task<ICollection<HuespedDto>> Handle(GetHuespedListQuery request, CancellationToken cancellationToken)
+	   {
+		  var query = _huespedes.AsNoTracking();
 
-			if (!string.IsNullOrWhiteSpace(request.SearchTerm))
-			{
-				query = query.Where(x => x.Nombre.Contains(request.SearchTerm));
-			}
+		  if (!string.IsNullOrWhiteSpace(request.SearchTerm))
+		  {
+			 query = query.Where(x => x.Nombre.Contains(request.SearchTerm));
+		  }
 
-			return await query.Select(huesped =>
-				new HuespedDto
-				{
-					HuespedID = huesped.Id,
-					Nombre = huesped.Nombre,
-					Apellidos = huesped.Apellidos,
-					NroDoc = huesped.NroDoc,
-					Email = huesped.Email,
-					Calle = huesped.Calle,
-					Ciudad = huesped.Ciudad,
-					Pais = huesped.Pais,
-					Telefono = huesped.Telefono,
-					CodigoPostal = huesped.Codigo_postal
+		  return await query.Select(huesped =>
+			  new HuespedDto
+			  {
+				 HuespedID = huesped.Id,
+				 Nombre = huesped.Nombre,
+				 Apellidos = huesped.Apellidos,
+				 NroDoc = huesped.NroDoc,
+				 Email = huesped.Email,
+				 Calle = huesped.Calle,
+				 Ciudad = huesped.Ciudad,
+				 Pais = huesped.Pais,
+				 Telefono = huesped.Telefono,
+				 CodigoPostal = huesped.Codigo_postal
 
-				}).ToListAsync(cancellationToken);
-		}
-	}
+			  }).ToListAsync(cancellationToken);
+	   }
+    }
 }

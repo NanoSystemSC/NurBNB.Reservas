@@ -9,29 +9,29 @@ using System.Threading.Tasks;
 
 namespace NurBNB.Reservas.Application.EventHandlers
 {
-	internal class NotificarServiciosWhenReservaCreada : INotificationHandler<ReservaCreada>
-	{
+    internal class NotificarServiciosWhenReservaCreada : INotificationHandler<ReservaCreada>
+    {
 
-		private readonly IBusService _bus;
+	   private readonly IBusService _bus;
 
-		public NotificarServiciosWhenReservaCreada(IBusService bus)
-		{
-			_bus = bus;
-		}
+	   public NotificarServiciosWhenReservaCreada(IBusService bus)
+	   {
+		  _bus = bus;
+	   }
 
-		public async Task Handle(ReservaCreada notification, CancellationToken cancellationToken)
-		{
+	   public async Task Handle(ReservaCreada notification, CancellationToken cancellationToken)
+	   {
 
-			IntegrationEvents.ReservaCreada evento = new IntegrationEvents.ReservaCreada()
-			{
-				ReservaId = notification.Id,
-				PropiedaId = notification.PropiedaId,
-				Nombre = notification.Nombre
-			};
+		  IntegrationEvents.ReservaCreada evento = new IntegrationEvents.ReservaCreada()
+		  {
+			 ReservaId = notification.Id,
+			 PropiedaId = notification.PropiedaId,
+			 Nombre = notification.Nombre
+		  };
 
-			await _bus.PublishAsync(evento);
+		  await _bus.PublishAsync(evento);
 
-			//return Task.CompletedTask;
-		}
-	}
+		  //return Task.CompletedTask;
+	   }
+    }
 }

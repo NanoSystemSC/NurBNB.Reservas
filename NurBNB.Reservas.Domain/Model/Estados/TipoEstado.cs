@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace NurBNB.Reservas.Domain.Model.Estados
 {
-	public enum TipoEstadoReserva
-	{
-		Disponible,
-		Solicitado,
-		Reservado,
-		Cancelado
-	}
+    public enum TipoEstadoReserva
+    {
+	   Disponible,
+	   Solicitado,
+	   Reservado,
+	   Cancelado
+    }
 }
