@@ -8,9 +8,10 @@ using MediatR;
 
 namespace NurBNB.Reservas.Application.UserCases.Huesped.Command.CrearHuesped;
 
-public class CrearHuespedCommand : IRequest<Guid>
+public class CrearHuespedCommand : IRequest<Guid>   
 {
-    public string Nombre { get; set; }
+//Prueba
+    public    string Nombre { get; set; }
     public string Apellidos { get; set; }
     public string Telefono { get; set; }
     public string NroDoc { get; set; }
