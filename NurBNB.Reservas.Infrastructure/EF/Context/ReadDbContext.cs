@@ -34,5 +34,8 @@ namespace NurBNB.Reservas.Infrastructure.EF.Context
 	   {
 		  base.OnModelCreating(modelBuilder);
 	   }
+
+
+
     }
 }
