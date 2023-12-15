@@ -10,6 +10,10 @@ public abstract record ValueObject
 	   {
 		  throw new ArgumentException("Rule cannot be null");
 	   }
+	   if (rule is null)
+	   {
+		  throw new ArgumentException("Rule cannot be null");
+	   }
 	   if (!rule.IsValid())
 	   {
 		  throw new BussinessRuleValidationException(rule);
