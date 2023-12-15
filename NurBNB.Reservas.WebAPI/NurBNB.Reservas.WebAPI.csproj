@@ -11,7 +11,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Node.js" Version="5.3.0" />
 		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.9">
 			<PrivateAssets>all</PrivateAssets>
