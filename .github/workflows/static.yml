@@ -12,9 +12,9 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Setup .NET
-      uses: actions/setup-dotnet@v2
+      uses: actions/setup-dotnet@v3
       with:
-        dotnet-version: 5.0.x
+        dotnet-version: 6.0.x
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
@@ -47,5 +47,5 @@ jobs:
           END
 
       - name: Do deploy
-        run: ssh staging 'cd /var/www/BnbReservas-app && bash deploy.sh'
+        run: ssh staging 'cd /home/NurBNB.Reservas && bash deploy.sh'
         
