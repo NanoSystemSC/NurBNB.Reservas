@@ -47,5 +47,5 @@ jobs:
           END
 
       - name: Do deploy
-        run: ssh staging 'cd /var/www/BnbReservas-app && bash deploy.sh'
+        run: ssh staging 'cd /home/NurBNB.Reservas && bash deploy.sh'
         
