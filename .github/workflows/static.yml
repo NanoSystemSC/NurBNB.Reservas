@@ -46,13 +46,6 @@ jobs:
               StrictHostKeyChecking no
           END
 
-      - name: Stop the server
-        run: ssh staging 'sudo systemctl stop NurBNB.Reservas.service'
-
       - name: Do deploy
         run: ssh staging 'cd /var/www/BnbReservas-app && bash deploy.sh'
-        
-      - name: Start the server
-        if: ${{ always() }}
-        run: ssh staging 'sudo systemctl start NurBNB.Reservas.service'
         
