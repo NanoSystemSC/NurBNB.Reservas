@@ -1,9 +1,9 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using NurBNB.Reservas.Application.UserCases.Huesped.Query.GetHuespuedList;
 using NurBNB.Reservas.Application.UserCases.Propiedad.Command.CrearPropiedad;
 using NurBNB.Reservas.Application.UserCases.Propiedad.Query.GetPropiedadDisponiblesList;
 using NurBNB.Reservas.Domain.Model.Estados;
+using Sentry;
 
 namespace NurBNB.Reservas.WebAPI.Controllers
 {
@@ -23,6 +23,9 @@ namespace NurBNB.Reservas.WebAPI.Controllers
 	   public async Task<IActionResult> CreatePropiedad([FromBody] CrearPropiedadCommand command)
 	   {
 		  var PropiedadID = await _mediator.Send(command);
+
+		  SentrySdk.CaptureMessage("Sentry: Crear Propiedad exitosa");
+
 		  return Ok(PropiedadID);
 	   }
 
@@ -34,6 +37,8 @@ namespace NurBNB.Reservas.WebAPI.Controllers
 		  {
 			 estadoReserva = tipoEstadoReserva
 		  });
+
+		  SentrySdk.CaptureMessage("Sentry: Busqueda de Propiedad exitosa");
 
 		  return Ok(Propiedades);
 	   }

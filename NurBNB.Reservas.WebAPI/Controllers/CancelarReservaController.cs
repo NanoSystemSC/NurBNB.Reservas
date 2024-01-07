@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using NurBNB.Reservas.Application.UserCases.CancelarReserva.Command.CrearReserva;
-using NurBNB.Reservas.Application.UserCases.Reserva.Command.CrearReserva;
+using Sentry;
 
 namespace NurBNB.Reservas.WebAPI.Controllers
 {
@@ -20,6 +20,9 @@ namespace NurBNB.Reservas.WebAPI.Controllers
 	   public async Task<IActionResult> CreateCancelarReserva([FromBody] CrearCancelacionCommand command)
 	   {
 		  var CancelacionID = await _mediator.Send(command);
+
+		  SentrySdk.CaptureMessage("Sentry: Cancelar Reserva exitosa");
+
 		  return Ok(CancelacionID);
 	   }
     }
