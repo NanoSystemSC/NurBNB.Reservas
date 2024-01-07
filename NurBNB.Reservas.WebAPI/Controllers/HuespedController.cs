@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using NurBNB.Reservas.Application.UserCases.Huesped.Command.CrearHuesped;
 using NurBNB.Reservas.Application.UserCases.Huesped.Query.GetHuespuedList;
+using System.ComponentModel;
 
 namespace NurBNB.Reservas.WebAPI.Controllers
 {
@@ -29,7 +30,9 @@ namespace NurBNB.Reservas.WebAPI.Controllers
 
 	   // [Authorize]
 	   [HttpGet]
-	   [Route("BuscarHuesped")]
+	   [Route("BuscarHuesped2")]
+
+
 	   public async Task<IActionResult> SearchItems(string searchTerm = "")
 	   {
 		  var huespedes = await _mediator.Send(new GetHuespedListQuery()
