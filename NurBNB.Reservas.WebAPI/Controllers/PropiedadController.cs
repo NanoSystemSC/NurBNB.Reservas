@@ -1,6 +1,5 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using NurBNB.Reservas.Application.UserCases.Huesped.Query.GetHuespuedList;
 using NurBNB.Reservas.Application.UserCases.Propiedad.Command.CrearPropiedad;
 using NurBNB.Reservas.Application.UserCases.Propiedad.Query.GetPropiedadDisponiblesList;
 using NurBNB.Reservas.Domain.Model.Estados;

@@ -3,9 +3,8 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using NurBNB.Reservas.Application.UserCases.Huesped.Command.CrearHuesped;
 using NurBNB.Reservas.Application.UserCases.Huesped.Query.GetHuespuedList;
-using NurBNB.Reservas.Domain.Model.Clientes;
 using Sentry;
-using System.ComponentModel;
+
 
 namespace NurBNB.Reservas.WebAPI.Controllers
 {
