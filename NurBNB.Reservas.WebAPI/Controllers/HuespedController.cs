@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using NurBNB.Reservas.Application.UserCases.Huesped.Command.CrearHuesped;
 using NurBNB.Reservas.Application.UserCases.Huesped.Query.GetHuespuedList;
+using NurBNB.Reservas.Domain.Model.Clientes;
+using Sentry;
 using System.ComponentModel;
 
 namespace NurBNB.Reservas.WebAPI.Controllers
@@ -24,6 +26,8 @@ namespace NurBNB.Reservas.WebAPI.Controllers
 	   {
 		  var HuespedID = await _mediator.Send(command);
 
+		  SentrySdk.CaptureMessage("Sentry:Huesped creado exitosamente: " + HuespedID);
+
 		  return Ok(HuespedID);
 
 	   }
@@ -39,6 +43,8 @@ namespace NurBNB.Reservas.WebAPI.Controllers
 		  {
 			 SearchTerm = searchTerm
 		  });
+
+		  SentrySdk.CaptureMessage("Sentry: Busqueda de Huesped");
 
 		  return Ok(huespedes);
 	   }
