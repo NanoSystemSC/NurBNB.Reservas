@@ -145,8 +145,9 @@ namespace Restaurant.Identity.Infrastructure.Services
             }
 
             userCreated.Errors.ToList().ForEach(error => _logger.LogError("Error { ErrorCode }: { Description }", error.Code, error.Description));
-            return new Result(false, "User not created");
-        }
+		  //return new Result(false, "User not created");
+		  return new Result(false, userCreated.Errors.ToList()[0].Code + " - " + userCreated.Errors.ToList()[0].Description);
+	   }
 
     }
 }

@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Restaurant.Identity.Application.Dto;
 using Restaurant.Identity.Application.Services;
+using System.Reflection.Metadata.Ecma335;
 
 namespace Restaurant.Identity.WebAPI.Controllers
 {
@@ -40,9 +41,10 @@ namespace Restaurant.Identity.WebAPI.Controllers
         [Route("register")]
         public async Task<IActionResult> Register([FromBody] RegisterAplicationUserModel model)
         {
-            var result = await _securityService.Register(model, false, true);
+		  //var result = await _securityService.Register(model, false, true);
+		  var result = await _securityService.Register(model, false, false);
 
-            if (result.Success)
+		  if (result.Success)
             {
                 return Ok(new
                 {
@@ -51,7 +53,8 @@ namespace Restaurant.Identity.WebAPI.Controllers
             }
             else
             {
-                return Unauthorized();
+			 //return new Result(false,"sdasdsa" ); 
+                return Unauthorized(result);
             }
         }
 
