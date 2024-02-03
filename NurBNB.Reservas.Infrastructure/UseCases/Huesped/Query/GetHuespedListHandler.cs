@@ -32,6 +32,7 @@ namespace NurBNB.Reservas.Infrastructure.UseCases.Huesped.Query
 			 query = query.Where(x => x.Nombre.Contains(request.SearchTerm));
 		  }
 
+
 		  return await query.Select(huesped =>
 			  new HuespedDto
 			  {

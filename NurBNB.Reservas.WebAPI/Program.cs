@@ -24,14 +24,14 @@ var app = builder.Build();
 //     app.UseSwagger();
 //     app.UseSwaggerUI();
 // }
-// pruiebaaaaaaaaaaa
+
 
 app.UseSwagger();
 app.UseSwaggerUI();
 app.UseHttpsRedirection();
 
 app.UseAuthentication();
-//app.UseAuthorization();
+//app.UseAuthorization(); // esto comentar si no quiero autorizar
 
 app.MapControllers();
 

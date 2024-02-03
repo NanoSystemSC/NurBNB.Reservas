@@ -41,7 +41,7 @@ builder.Configuration.AddJsonFile("ocelot.json");
 // Add services to the container.
 //builder.Services.AddOcelot();
 builder.Services.AddOcelot()
-                .AddSingletonDefinedAggregator<HuespedReservaDetailAggregator>()
+                .AddSingletonDefinedAggregator<HuespedReservaDetailAggregator>()			 
                 .AddDelegatingHandler<LogDelegatingHandler>();
                 
 
@@ -62,7 +62,8 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseAuthentication();
-//app.UseAuthorization();
+
+//app.UseAuthorization(); // esto comentar si no quiero autorizar
 
 await app.UseOcelot();
 app.MapControllers();

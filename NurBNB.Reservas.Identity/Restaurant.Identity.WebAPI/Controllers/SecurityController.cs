@@ -29,6 +29,7 @@ namespace Restaurant.Identity.WebAPI.Controllers
                 return Ok(new
                 {
                     jwt = result.Value,
+				name = result.Name
                 });
             }
             else

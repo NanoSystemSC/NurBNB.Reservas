@@ -64,7 +64,7 @@ namespace Restaurant.Identity.Infrastructure.Services
             {
                 _logger.LogInformation("{username} has logged in", username);
                 var jwt = await GenerateJwt(user);
-                return new Result<string>(jwt, true, "User not found");
+                return new Result<string>(jwt, true, "User not found", user.FirstName + " " + user.LastName);
             }
             return new Result<string>(false, "User not found");
         }

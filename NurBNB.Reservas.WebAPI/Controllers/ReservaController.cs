@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using NurBNB.Reservas.Application.UserCases.Propiedad.Query.GetPropiedadDisponiblesList;
 using NurBNB.Reservas.Application.UserCases.Reserva.Command.CrearReserva;
@@ -28,6 +29,7 @@ namespace NurBNB.Reservas.WebAPI.Controllers
 		  return Ok(ReservaID);
 	   }
 
+	   //[Authorize]
 	   [HttpGet]
 	   [Route("PropiedadesDisponibles")]
 	   public async Task<IActionResult> SearchItems(TipoEstadoReserva tipoEstadoReserva)
