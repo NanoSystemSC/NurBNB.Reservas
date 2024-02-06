@@ -34,14 +34,14 @@ namespace NurBNB.Reservas.Infrastructure.UseCases.Propiedad.Query
 							  on prop.Propietario_ID equals propietarios.Id.ToString()
 							 select new ListofPropiedadesDto
 							 {
-								Propietario = propietarios.Nombre + " " + propietarios.Apellidos,
+								Propietario = propietarios.Nombre.ToUpper() + " " + propietarios.Apellidos.ToUpper(),
 								IDPropiedad = prop.Id,
-								PropietarioID = prop.Propietario_ID,
-								Titulo = prop.Titulo,
-								Detalle = prop.Detalle,
+								PropietarioID = prop.Propietario_ID.ToUpper(),
+								Titulo = prop.Titulo.ToUpper(),
+								Detalle = prop.Detalle.ToUpper(),
 								Precio = prop.Precio,
-								Ubicacion = prop.Ubicacion,
-								Estado = prop.Estado
+								Ubicacion = prop.Ubicacion.ToUpper(),
+								Estado = prop.Estado.ToUpper()
 							 };
 
 		  return await _listaPropiedades.ToListAsync(cancellationToken);

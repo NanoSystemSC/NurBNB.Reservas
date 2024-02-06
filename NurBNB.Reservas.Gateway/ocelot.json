@@ -16,6 +16,23 @@
 		  "UpstreamHttpMethod": [ "GET" ]
 
 	   },
+	   //https://localhost:7007/api/Propiedad/ListaPropiedades
+	   // ****************************************** Servicio de Lista de Propiedades **************************************//
+	   {
+		  "Key": "ListaPropiedades",
+		  "DownstreamPathTemplate": "/api/Propiedad/ListaPropiedades", // Esto es para la Ruta del API del Microservicios
+		  "DownstreamScheme": "http",
+		  "DownstreamHostAndPorts": [
+			 {
+				"Host": "localhost",
+				"Port": 5222
+
+			 }
+		  ],
+		  "UpstreamPathTemplate": "/propiedad/ListaPropiedades", // Esto es para la Ruta del ApiGateway
+		  "UpstreamHttpMethod": [ "GET" ]
+
+	   },
 	   // ****************************************** Servicio de Reserva Disponibles     **************************************//
 	   {
 		  "Key": "propiedDisponible",
