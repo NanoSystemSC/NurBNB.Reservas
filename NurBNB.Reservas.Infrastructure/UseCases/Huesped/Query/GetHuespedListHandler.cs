@@ -46,7 +46,7 @@ namespace NurBNB.Reservas.Infrastructure.UseCases.Huesped.Query
 				 Pais = huesped.Pais.ToUpper(),
 				 Telefono = huesped.Telefono.ToUpper(),
 				 CodigoPostal = huesped.Codigo_postal.ToUpper(),
-				 NombreCompleto = huesped.Nombre + " " + huesped.Apellidos
+				 NombreCompleto = huesped.Nombre.ToUpper() + " " + huesped.Apellidos.ToUpper()
 
 			  }).ToListAsync(cancellationToken);
 	   }

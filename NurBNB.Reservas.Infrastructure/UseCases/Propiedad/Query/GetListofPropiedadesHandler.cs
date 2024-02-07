@@ -30,8 +30,7 @@ namespace NurBNB.Reservas.Infrastructure.UseCases.Propiedad.Query
 		  var propietario = huesped.AsNoTracking();
 
 		  var _listaPropiedades = from prop in propiedad
-							 join propietarios in propietario
-							  on prop.Propietario_ID equals propietarios.Id.ToString()
+							 join propietarios in propietario on prop.Propietario_ID equals propietarios.Id.ToString()
 							 select new ListofPropiedadesDto
 							 {
 								Propietario = propietarios.Nombre.ToUpper() + " " + propietarios.Apellidos.ToUpper(),
