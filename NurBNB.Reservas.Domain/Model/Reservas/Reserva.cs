@@ -32,26 +32,35 @@ namespace NurBNB.Reservas.Domain.Model.Reservas
 		  Estado = TipoEstadoReserva.Solicitado;
 		  Motivo = motivo;
 
-		  //var obj = new Reserva(huespedID, propiedadID, fechaCheckIn, fechaCheckOut, motivo);
-		  //AddDomainEvent(new ReservaCreada(
-		  //       Id,
-		  //       PropiedadID,
-		  //       "nombreee"
-		  //   ));
+	   }
 
+	   public Reserva(Guid reservaId, Guid huespedID, Guid propiedadID, DateTime fechaCheckIn, DateTime fechaCheckOut, string motivo, DateTime fecharegistro, TipoEstadoReserva estado)
+	   {
+		  Id = reservaId;
+		  HuespedID = huespedID;
+		  PropiedadID = propiedadID;
+		  FechaCheckIn = fechaCheckIn;
+		  FechaCheckOut = fechaCheckOut;
+		  FechaRegistro = fecharegistro;
+		  Estado = estado;
+		  Motivo = motivo;
 
 	   }
 
 	   public static Reserva Create(Guid huespedID, Guid propiedadID, DateTime fechaCheckIn, DateTime fechaCheckOut, string motivo)
 	   {
 		  var obj = new Reserva(huespedID, propiedadID, fechaCheckIn, fechaCheckOut, motivo);
+
+		  //Esto es para el evento de Rabbit.. para llamar al servicio de Pagos
 		  obj.AddDomainEvent(new ReservaCreada(
-				  obj.Id,
-				  obj.PropiedadID,
-				  "nombreee"
-			  ));
+		    obj.Id,
+		    obj.PropiedadID,
+		    "nombreee"
+		   ));
 		  return obj;
 	   }
+
+
 
 
 	   [ExcludeFromCodeCoverage]

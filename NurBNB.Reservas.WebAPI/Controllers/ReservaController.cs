@@ -1,7 +1,13 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using NurBNB.Reservas.Application.UserCases.Huesped.Query.GetHuespuedList;
+using NurBNB.Reservas.Application.UserCases.Propiedad.Query.GetListofPropiedades;
 using NurBNB.Reservas.Application.UserCases.Propiedad.Query.GetPropiedadDisponiblesList;
+using NurBNB.Reservas.Application.UserCases.Reserva.Command.CancelarReserva;
 using NurBNB.Reservas.Application.UserCases.Reserva.Command.CrearReserva;
+using NurBNB.Reservas.Application.UserCases.Reserva.Command.UpdateReserva;
+using NurBNB.Reservas.Application.UserCases.Reserva.Query.GetListofReservas;
 using NurBNB.Reservas.Domain.Model.Estados;
 using Sentry;
 
@@ -28,6 +34,7 @@ namespace NurBNB.Reservas.WebAPI.Controllers
 		  return Ok(ReservaID);
 	   }
 
+	   //[Authorize]
 	   [HttpGet]
 	   [Route("PropiedadesDisponibles")]
 	   public async Task<IActionResult> SearchItems(TipoEstadoReserva tipoEstadoReserva)
@@ -40,6 +47,42 @@ namespace NurBNB.Reservas.WebAPI.Controllers
 		  SentrySdk.CaptureMessage("Sentry: Busqueda de Reserva exitosa");
 
 		  return Ok(Propiedades);
+	   }
+
+	   [HttpGet]
+	   [Route("ListaReservas")]
+	   public async Task<IActionResult> ListaReservas(TipoEstadoReserva tipoEstadoReserva)
+	   {
+		  var Propiedades = await _mediator.Send(new GetListofReservasDisponiblesQuery()
+		  {
+			 estadoReserva = tipoEstadoReserva
+		  });
+
+		  SentrySdk.CaptureMessage("Sentry: Busqueda de Propiedad exitosa");
+
+		  return Ok(Propiedades);
+	   }
+
+	   [HttpPost]
+	   [Route("ConfirmarReserva")]
+	   public async Task<IActionResult> ConfirmarReserva([FromBody] UpdateReservaCommand command)
+	   {
+		  var ReservaID = await _mediator.Send(command);
+
+		  SentrySdk.CaptureMessage("Sentry: Confirmacion de Reserva exitosa");
+
+		  return Ok(ReservaID);
+	   }
+
+	   [HttpPost]
+	   [Route("RechazarReserva")]
+	   public async Task<IActionResult> RechazarReserva([FromBody] CancelarReservaCommand command)
+	   {
+		  var ReservaID = await _mediator.Send(command);
+
+		  SentrySdk.CaptureMessage("Sentry: Cancelación de Reserva exitosa");
+
+		  return Ok(ReservaID);
 	   }
     }
 }

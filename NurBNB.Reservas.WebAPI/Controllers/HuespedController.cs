@@ -31,12 +31,10 @@ namespace NurBNB.Reservas.WebAPI.Controllers
 
 	   }
 
-	   // [Authorize]
+	   //[Authorize]
 	   [HttpGet]
-	   [Route("BuscarHuesped2")]
-
-
-	   public async Task<IActionResult> SearchItems(string searchTerm = "")
+	   [Route("BuscarHuesped")]
+	   public async Task<IActionResult> SearchItems(string? searchTerm = "")
 	   {
 		  var huespedes = await _mediator.Send(new GetHuespedListQuery()
 		  {

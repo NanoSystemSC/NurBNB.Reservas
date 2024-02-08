@@ -32,19 +32,21 @@ namespace NurBNB.Reservas.Infrastructure.UseCases.Huesped.Query
 			 query = query.Where(x => x.Nombre.Contains(request.SearchTerm));
 		  }
 
+
 		  return await query.Select(huesped =>
 			  new HuespedDto
 			  {
-				 HuespedID = huesped.Id,
-				 Nombre = huesped.Nombre,
-				 Apellidos = huesped.Apellidos,
-				 NroDoc = huesped.NroDoc,
-				 Email = huesped.Email,
-				 Calle = huesped.Calle,
-				 Ciudad = huesped.Ciudad,
-				 Pais = huesped.Pais,
-				 Telefono = huesped.Telefono,
-				 CodigoPostal = huesped.Codigo_postal
+				 HuespedID = huesped.Id.ToString().ToUpper(),
+				 Nombre = huesped.Nombre.ToUpper(),
+				 Apellidos = huesped.Apellidos.ToUpper(),
+				 NroDoc = huesped.NroDoc.ToUpper(),
+				 Email = huesped.Email.ToUpper(),
+				 Calle = huesped.Calle.ToUpper(),
+				 Ciudad = huesped.Ciudad.ToUpper(),
+				 Pais = huesped.Pais.ToUpper(),
+				 Telefono = huesped.Telefono.ToUpper(),
+				 CodigoPostal = huesped.Codigo_postal.ToUpper(),
+				 NombreCompleto = huesped.Nombre.ToUpper() + " " + huesped.Apellidos.ToUpper()
 
 			  }).ToListAsync(cancellationToken);
 	   }

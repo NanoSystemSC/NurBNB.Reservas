@@ -11,10 +11,18 @@ public class Result
     public bool Success { get; set; }
     public string? Message { get; set; }
 
+    public string Name { get;set; }
+
     public Result(bool success, string message)
     {
         Success = success;
         Message = message;
+    }
+    public Result(bool success, string message, string name)
+    {
+	   Success = success;
+	   Message = message;
+	   Name = name;
     }
     public Result(bool success)
     {
@@ -34,6 +42,12 @@ public class Result<T> : Result
         Success = success;
         Message = message;
     }
+    public Result(bool success, string message, string name) : base(success, message, name)
+    {
+	   Success = success;
+	   Message = message;
+	   Name = name;
+    }
     public Result(bool success) : base(success)
     {
         Success = success;
@@ -42,6 +56,10 @@ public class Result<T> : Result
     public Result(T value, bool success, string message) : base(success, message)
     {
         Value = value;
+    }
+    public Result(T value, bool success, string message, string name) : base(success, message, name)
+    {
+	   Value = value;
     }
     public Result(T value, bool success) : base(success)
     {

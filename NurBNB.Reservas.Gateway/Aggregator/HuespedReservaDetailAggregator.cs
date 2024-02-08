@@ -32,7 +32,7 @@ namespace NurBNB.Reservas.Gateway.Aggregator
 
             var objHuesped = JsonConvert.DeserializeObject<List<HuespedDto>>(BuscarHuesped_Response);
 
-            return new DownstreamResponse(new StringContent(JsonConvert.SerializeObject(objPropiedad)),
+            return new DownstreamResponse(new StringContent(JsonConvert.SerializeObject(objHuesped)),
                 HttpStatusCode.OK, new List<Header>(), "OK");
 
         }

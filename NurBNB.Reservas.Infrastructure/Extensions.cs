@@ -30,7 +30,7 @@ namespace NurBNB.Reservas.Infrastructure
 
 		  AddDatabase(services, configuration, isDevelopment);
 
-		  // AddAuthentication(services, configuration);
+		  //AddAuthentication(services, configuration); // Esto Comentar si no quiero autenticar
 
 		  AddMassTransitWithRabbitMq(services, configuration);
 
@@ -103,13 +103,13 @@ namespace NurBNB.Reservas.Infrastructure
 			 configure.UsingRabbitMq((context, configurator) =>
 			    {
 
-				 configurator.Host(rabbitMQSettings.Host);
-				 configurator.ConfigureEndpoints(context, new KebabCaseEndpointNameFormatter(serviceName, false));
-				 configurator.UseMessageRetry(retryConfigurator =>
-				    {
-					 retryConfigurator.Interval(3, TimeSpan.FromSeconds(5));
-				  });
-			  });
+				   configurator.Host(rabbitMQSettings.Host);
+				   configurator.ConfigureEndpoints(context, new KebabCaseEndpointNameFormatter(serviceName, false));
+				   configurator.UseMessageRetry(retryConfigurator =>
+					 {
+						retryConfigurator.Interval(3, TimeSpan.FromSeconds(5));
+					 });
+			    });
 		  });
 
 		  return services;
