@@ -52,11 +52,11 @@ namespace NurBNB.Reservas.Domain.Model.Reservas
 		  var obj = new Reserva(huespedID, propiedadID, fechaCheckIn, fechaCheckOut, motivo);
 
 		  //Esto es para el evento de Rabbit.. para llamar al servicio de Pagos
-		  //obj.AddDomainEvent(new ReservaCreada(
-		  //  obj.Id,
-		  //  obj.PropiedadID,
-		  //  "nombreee"
-		  // ));
+		  obj.AddDomainEvent(new ReservaCreada(
+		    obj.Id,
+		    obj.PropiedadID,
+		    "nombreee"
+		   ));
 		  return obj;
 	   }
 
