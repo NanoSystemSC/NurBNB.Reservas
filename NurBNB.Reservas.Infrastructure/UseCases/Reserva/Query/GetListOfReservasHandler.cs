@@ -57,7 +57,7 @@ namespace NurBNB.Reservas.Infrastructure.UseCases.Reserva.Query
 
 		  if (!string.IsNullOrWhiteSpace(Convert.ToString(request.estadoReserva)) && request.estadoReserva > 0)
 		  {
-			 _listaReservas = _listaReservas.Where(x => x.Estado == request.estadoReserva.ToString());
+			 _listaReservas = _listaReservas.Where(x => x.Estado == request.estadoReserva.ToString() && x.FechaCheckin > DateTime.Now.Date);
 		  }
 
 		  return await _listaReservas.ToListAsync(cancellationToken);

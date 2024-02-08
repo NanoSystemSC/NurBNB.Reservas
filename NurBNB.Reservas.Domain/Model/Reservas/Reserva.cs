@@ -34,6 +34,19 @@ namespace NurBNB.Reservas.Domain.Model.Reservas
 
 	   }
 
+	   public Reserva(Guid reservaId, Guid huespedID, Guid propiedadID, DateTime fechaCheckIn, DateTime fechaCheckOut, string motivo, DateTime fecharegistro, TipoEstadoReserva estado)
+	   {
+		  Id = reservaId;
+		  HuespedID = huespedID;
+		  PropiedadID = propiedadID;
+		  FechaCheckIn = fechaCheckIn;
+		  FechaCheckOut = fechaCheckOut;
+		  FechaRegistro = fecharegistro;
+		  Estado = estado;
+		  Motivo = motivo;
+
+	   }
+
 	   public static Reserva Create(Guid huespedID, Guid propiedadID, DateTime fechaCheckIn, DateTime fechaCheckOut, string motivo)
 	   {
 		  var obj = new Reserva(huespedID, propiedadID, fechaCheckIn, fechaCheckOut, motivo);
@@ -46,6 +59,8 @@ namespace NurBNB.Reservas.Domain.Model.Reservas
 		  // ));
 		  return obj;
 	   }
+
+
 
 
 	   [ExcludeFromCodeCoverage]
