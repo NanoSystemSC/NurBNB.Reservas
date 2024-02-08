@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace NurBNB.Reservas.Infrastructure.UseCases.Reserva.Query
 {
@@ -37,6 +38,7 @@ namespace NurBNB.Reservas.Infrastructure.UseCases.Reserva.Query
 		  var _listaReservas = from reserv in reserva
 						   join huesp in huesped on reserv.HuespedID.ToString().ToUpper() equals huesp.Id.ToString().ToUpper()
 						   join prop in propiedad on reserv.PropiedadID equals prop.Id
+						   //where reserv.Estado == request.estadoReserva.
 						   select new ListOfReservaDto
 						   {
 							  IDReserva = reserv.Id.ToString().ToUpper(),
@@ -53,6 +55,10 @@ namespace NurBNB.Reservas.Infrastructure.UseCases.Reserva.Query
 							  Cliente = huesp.Nombre.ToUpper() + " " + huesp.Apellidos.ToUpper()
 						   };
 
+		  if (!string.IsNullOrWhiteSpace(Convert.ToString(request.estadoReserva)) && request.estadoReserva > 0)
+		  {
+			  _listaReservas = _listaReservas.Where(x => x.Estado == request.estadoReserva.ToString());
+		  }
 
 		  return await _listaReservas.ToListAsync(cancellationToken);
 	   }
