@@ -60,5 +60,7 @@ namespace NurBNB.Reservas.WebAPI.Controllers
 
 		  return Ok(Propiedades);
 	   }
+
+
     }
 }
