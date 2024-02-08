@@ -36,8 +36,6 @@ namespace NurBNB.Reservas.Infrastructure.EF.Repositories
 		  return await _context.Reserva.SingleOrDefaultAsync(p => p.Id == id);
 	   }
 
-
-
 	   public Task UpdateAsync(Reserva reserva)
 	   {
 		  _context.Reserva.Update(reserva);

@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using NurBNB.Reservas.Application.UserCases.Propiedad.Command.CrearPropiedad;
+using NurBNB.Reservas.Application.UserCases.Propiedad.Query.GetListofPropiedades;
 using NurBNB.Reservas.Application.UserCases.Propiedad.Query.GetPropiedadDisponiblesList;
 using NurBNB.Reservas.Domain.Model.Estados;
 using Sentry;
@@ -34,6 +35,20 @@ namespace NurBNB.Reservas.WebAPI.Controllers
 	   public async Task<IActionResult> SearchItems(TipoEstadoReserva tipoEstadoReserva)
 	   {
 		  var Propiedades = await _mediator.Send(new GetPropiedadDisponiblesQuery()
+		  {
+			 estadoReserva = tipoEstadoReserva
+		  });
+
+		  SentrySdk.CaptureMessage("Sentry: Busqueda de Propiedad exitosa");
+
+		  return Ok(Propiedades);
+	   }
+
+	   [HttpGet]
+	   [Route("ListaPropiedades")]
+	   public async Task<IActionResult> ListaPropiedades(TipoEstadoReserva tipoEstadoReserva)
+	   {
+		  var Propiedades = await _mediator.Send(new GetListofPropiedadesQuery()
 		  {
 			 estadoReserva = tipoEstadoReserva
 		  });

@@ -64,7 +64,7 @@ namespace Restaurant.Identity.Infrastructure.Services
             {
                 _logger.LogInformation("{username} has logged in", username);
                 var jwt = await GenerateJwt(user);
-                return new Result<string>(jwt, true, "User not found");
+                return new Result<string>(jwt, true, "User not found", user.FirstName + " " + user.LastName);
             }
             return new Result<string>(false, "User not found");
         }
@@ -145,8 +145,9 @@ namespace Restaurant.Identity.Infrastructure.Services
             }
 
             userCreated.Errors.ToList().ForEach(error => _logger.LogError("Error { ErrorCode }: { Description }", error.Code, error.Description));
-            return new Result(false, "User not created");
-        }
+		  //return new Result(false, "User not created");
+		  return new Result(false, userCreated.Errors.ToList()[0].Code + " - " + userCreated.Errors.ToList()[0].Description);
+	   }
 
     }
 }
